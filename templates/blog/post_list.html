@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    {% for posts in post_list %}
+        <div>{{ posts.title }}</div>
+        <div>{{ posts.content|safe }}</div>
+        <div>{{ posts.created_date }}</div>
+        <div>{{ posts.published_date }}</div>
+    {% endfor %}
+{% endblock %}

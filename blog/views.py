@@ -1,3 +1,14 @@
 from django.shortcuts import render
+from django.views.generic import View
+from .models import BlogPost
 
-# Create your views here.
+
+class PostList(View):
+    @staticmethod
+    def get(request, *args, **kwargs):
+        post_list = BlogPost.objects.all()
+        context = {
+            'post_list': post_list,
+        }
+        return render(request, 'blog/post_list.html', context)
+

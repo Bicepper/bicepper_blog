@@ -12,11 +12,10 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 import socket
-import django
-django.get_version()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PROJECT_NAME = 'bicepper_blog'
 
 
 # Quick-start development settings - unsuitable for production
@@ -36,9 +35,11 @@ else:
 
 # Application definition
 DJANGO_APPS = [
+    'django.contrib.contenttypes',
+    'grappelli.dashboard',
+    'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
-    'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
@@ -46,7 +47,9 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-
+    'filebrowser',
+    'imagekit',
+    'froala_editor',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS
@@ -67,7 +70,7 @@ ROOT_URLCONF = 'bicepper_blog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -139,9 +142,17 @@ USE_L10N = True
 
 USE_TZ = True
 
+# dashboard
+GRAPPELLI_INDEX_DASHBOARD = 'dashboard.CustomIndexDashboard'
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_var')
+# STATIC_ROOT = '/var/www/{}/static'.format(PROJECT_NAME)
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
