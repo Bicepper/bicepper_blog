@@ -12,8 +12,8 @@ from froala_editor.fields import FroalaField
 
 class BlogPost(models.Model):
     author = models.ForeignKey('auth.User', blank=False, on_delete=models.CASCADE, verbose_name=_('作成者'))
-    main_image = FileBrowseField("メイン画像", max_length=200, directory="media/uploads/thumbnail/", extensions=[".jpg"],
-                                 blank=False, null=True)
+    main_image = FileBrowseField("メイン画像", max_length=200, directory="media/uploads/thumbnail/",
+                                 extensions=[".jpg", ".png"], blank=False, null=True)
     title = models.CharField(_('タイトル'), max_length=200, blank=False)
     content = FroalaField(_('内容'), default='', blank=False, null=False)
     created_date = models.DateTimeField(_('作成日'), default=timezone.now, blank=False)

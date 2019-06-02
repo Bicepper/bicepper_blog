@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load blog_tag %}
 
 {% block content %}
     {% for posts in post_list %}
+        <div>{{ posts.main_image|safe }}</div>
         <div>{{ posts.title }}</div>
         <div>{{ posts.content|safe }}</div>
-        <div>{{ posts.created_date }}</div>
+        <div>{{ posts.created_date|time_split }}</div>
         <div>{{ posts.published_date }}</div>
     {% endfor %}
 {% endblock %}

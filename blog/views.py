@@ -7,6 +7,7 @@ class PostList(View):
     @staticmethod
     def get(request, *args, **kwargs):
         post_list = BlogPost.objects.all()
+        print(post_list)
         context = {
             'post_list': post_list,
         }
