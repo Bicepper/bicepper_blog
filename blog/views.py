@@ -13,3 +13,5 @@ class PostList(View):
         }
         return render(request, 'blog/post_list.html', context)
 
+
+

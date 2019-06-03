@@ -35,8 +35,10 @@
 <body id="top">
     {% include 'include/head/nav.html' %}
 
-    {% block content%}
-    {% endblock %}
+    <div class="content">
+        {% block content%}
+        {% endblock %}
+    </div>
 
     {% include 'include/footer/footer.html' %}
 </body>
