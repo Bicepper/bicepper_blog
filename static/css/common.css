@@ -179,9 +179,41 @@ body{
     margin:40px auto 0 auto;
     padding:25px;
 }
+@media screen and (max-width:599px) {
+    .content{
+        flex-direction:column;
+    }
+}
+@media screen and (min-width:600px) and ( max-width:1040px) {
+    .content{
+        flex-direction:row;
+    }
+}
+@media screen and (min-width:1041px) {
+    .content{
+        flex-direction:row;
+    }
+}
+
 .left-column{
-    padding-right:65px;
-    width:70%;
+    width:100%;
+}
+@media screen and (max-width:599px) {
+    .left-column{
+        width:100%;
+    }
+}
+@media screen and (min-width:600px) and ( max-width:1040px) {
+    .left-column{
+        padding-right:65px;
+        width:70%;
+    }
+}
+@media screen and (min-width:1041px) {
+    .left-column{
+        padding-right:65px;
+        width:70%;
+    }
 }
 .blog-list{
     width:100%;
@@ -198,7 +230,23 @@ body{
 .blog-list-link{
     display:flex;
     width:100%;
+    max-height:200px;
     word-break:break-all;
+}
+@media screen and (max-width:599px) {
+    .blog-list-link{
+        height:auto;
+    }
+}
+@media screen and (min-width:600px) and ( max-width:1040px) {
+    .blog-list-link{
+        height:120px;
+    }
+}
+@media screen and (min-width:1041px) {
+    .blog-list-link{
+        height:200px;
+    }
 }
 .blog-thumbnail{
     position:relative;
@@ -209,8 +257,9 @@ body{
     position:relative;
     display:block;
     width:100%;
-    height:auto;
+    height:100%;
     z-index:10;
+    object-fit:cover;
     -moz-transition: -moz-transform 0.2s linear;
     -webkit-transition: -webkit-transform 0.2s linear;
     -o-transition: -o-transform 0.2s linear;
@@ -239,11 +288,45 @@ body{
     font-size:20px;
     line-height:1.6rem;
 }
+@media screen and (max-width:599px) {
+    .blog-title{
+        font-size:13px;
+    }
+}
+@media screen and (min-width:600px) and ( max-width:1040px) {
+    .blog-title{
+        font-size:15px;
+    }
+}
+@media screen and (min-width:1041px) {
+    .blog-title{
+        font-size:20px;
+    }
+}
 .blog-heading{
     font-size:13px;
     line-height:1.4rem;
     flex:1;
     padding:10px 0;
+}
+@media screen and (max-width:599px) {
+    .blog-heading{
+        font-size:10px;
+        padding:10px 0;
+    }
+}
+@media screen and (min-width:600px) and ( max-width:1040px) {
+    .blog-heading{
+        display:none;
+        font-size:10px;
+        padding:10px 0;
+    }
+}
+@media screen and (min-width:1041px) {
+    .blog-heading{
+        font-size:13px;
+        padding:10px 0;
+    }
 }
 .blog-postdate{
     width:100%;

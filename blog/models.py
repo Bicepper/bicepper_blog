@@ -27,7 +27,7 @@ class BlogPost(models.Model):
                                  extensions=[".jpg", ".png"], blank=False, null=True)
     category = models.ForeignKey('Category', verbose_name='カテゴリ', default=3, on_delete=models.PROTECT)
     title = models.CharField(_('タイトル'), max_length=200, blank=False)
-    description = models.TextField(_('記事概要'), default='', blank=False)
+    description = models.TextField(_('記事概要'), max_length=108, default='', blank=False)
     content = FroalaField(_('内容'), default='', blank=False, null=False)
     created_date = models.DateTimeField(_('作成日'), default=timezone.now, blank=False)
     published_date = models.DateTimeField(_('更新日'), blank=True, null=True)
