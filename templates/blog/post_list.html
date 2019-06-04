@@ -7,11 +7,15 @@
         {% for posts in post_list %}
             <article class="blog-list">
                 <a href="#" class="blog-list-link text-decoration-none color-grey">
-                    <div>{{ posts.main_image|safe }}</div>
-                    <div>{{ posts.title }}</div>
-                    <div>{{ posts.description }}</div>
-                    <div>{{ posts.created_date|date:"Y年m月j日" }}</div>
-                    <div>{{ posts.published_date }}</div>
+                    <div class="blog-thumbnail">
+                        <img src="{% get_media_prefix %}{{ posts.main_image|safe }}" alt="" class="blog-thumbnail-image">
+                        <span class="blog-category-min">{{ posts.category }}</span>
+                    </div>
+                    <div class="blog-overview">
+                        <h2 class="blog-title">{{ posts.title }}</h2>
+                        <p class="blog-heading">{{ posts.description }}</p>
+                        <div class="blog-postdate"><i class="far fa-calendar-alt"></i>&nbsp;{{ posts.created_date|date:"Y年m月j日" }}</div>
+                    </div>
                 </a>
             </article>
         {% endfor %}
