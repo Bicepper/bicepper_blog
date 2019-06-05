@@ -371,8 +371,24 @@ body{
     color:#fff;
 }
 .side-bar{
-    width:30%;
+    width:100%;
 }
+@media screen and (max-width:599px) {
+    .side-bar{
+        width:100%;
+    }
+}
+@media screen and (min-width:600px) and ( max-width:1040px) {
+    .side-bar{
+        width:30%;
+    }
+}
+@media screen and (min-width:1041px) {
+    .side-bar{
+        width:30%;
+    }
+}
+
 .side-bar-title{
     padding:12px;
     text-align:left;
@@ -419,6 +435,7 @@ body{
 }
 .blogrank-list-link{
     display:flex;
+    justify-content:space-between;
     color:#666;
     -webkit-transition: all 0.2s ease;
     -moz-transition: all 0.2s ease;
@@ -494,37 +511,55 @@ body{
 
 .side-bar-category{
     margin:16px 0 0 0;
+    border:1px solid #dcdcdc;
 }
-.side-bar-category-select{
-	width:100%;
-    padding:10px 8px 10px 8px;
-    list-style:none;
-    font-size:14px;
-    border:2px solid #dcdcdc;
-    border-radius:0;
-    color:#666;
-    background:#fff;
-    outline:none;
-    -webkit-appearance: none;
-    appearance:none;
-    cursor:pointer;
-}
+
 .side-bar-ar{
     margin:16px 0 0 0;
 }
-.side-bar-category-select{
-	width:100%;
-    padding:10px 8px 10px 8px;
+.side-bar-category-list{
     list-style:none;
-    font-size:14px;
-    border:2px solid #dcdcdc;
-    border-radius:0;
+}
+.side-bar-category-list-link{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    padding:8px 16px;
+    min-height:48px;
     color:#666;
+    font-weight:700;
+    text-decoration:none;
+    text-transform:uppercase;
     background:#fff;
-    outline:none;
-    -webkit-appearance: none;
-    appearance:none;
-    cursor:pointer;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all  0.2s ease;
+}
+.side-bar-category-list-link:hover{
+    background:#efefef;
+}
+.side-bar-category-list-item:not(:last-child) .side-bar-category-list-link{
+    border-bottom:1px solid #dcdcdc;
+}
+
+
+
+
+.side-bar-category-select{
+	/*width:100%;*/
+    /*min-height:45px;*/
+    /*padding:10px 8px 10px 8px;*/
+    /*list-style:none;*/
+    /*font-size:14px;*/
+    /*border:2px solid #dcdcdc;*/
+    /*border-radius:0;*/
+    /*color:#666;*/
+    /*background:#fff;*/
+    /*outline:none;*/
+    /*-webkit-appearance: none;*/
+    /*appearance:none;*/
+    /*cursor:pointer;*/
 }
 
 
@@ -542,6 +577,7 @@ body{
 }
 .newblog-list-link{
     display:flex;
+    justify-content:space-between;
     color:#666;
     -webkit-transition: all 0.2s ease;
     -moz-transition: all 0.2s ease;
