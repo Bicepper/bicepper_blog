@@ -7,10 +7,11 @@ from .models import Category
 
 class BaseListView(ListView):
     paginate_by = 10
+    model = BlogPost
     template_name = 'blog/post_list.html'
 
     def get_queryset(self):
-        queryset = BlogPost.objects.filter(is_public=True).order_by('-created_at').select_related('category')
+        queryset = BlogPost.objects.filter(is_public=True).order_by('-created_date').select_related('category')
         return queryset
 
 

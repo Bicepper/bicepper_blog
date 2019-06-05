@@ -31,7 +31,7 @@ class BlogPost(models.Model):
     content = FroalaField(_('内容'), default='', blank=False, null=False)
     created_date = models.DateTimeField(_('作成日'), default=timezone.now, blank=False)
     published_date = models.DateTimeField(_('更新日'), blank=True, null=True)
-    is_public = models.BooleanField(_('非公開設定'), default=False, help_text='非公開にする場合はチェックを入れる')
+    is_public = models.BooleanField(_('公開設定'), default=True, help_text='非公開にする場合はチェックをはすず')
 
     class Meta:
         verbose_name = _('投稿')
