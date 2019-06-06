@@ -14,6 +14,7 @@
                     <div class="blog-overview">
                         <h2 class="blog-title">{{ posts.title }}</h2>
                         <p class="blog-heading">{{ posts.description }}</p>
+                        <p>{{ posts.category.parent.title }}</p>
                         <div class="blog-postdate"><i class="far fa-calendar-alt"></i>&nbsp;{{ posts.created_date|date:"Y年m月j日" }}</div>
                     </div>
                 </a>

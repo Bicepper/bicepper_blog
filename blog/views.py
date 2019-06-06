@@ -18,8 +18,12 @@ class BaseListView(ListView):
 class PostList(BaseListView):
     def get_queryset(self):
         queryset = super().get_queryset()
-        print('これクエリセット：{}'.format(queryset.values_list(flat=True)))
         return queryset
+
+    # def get_context_data(self, *, object_list=None, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     print('これcontext：{}'.format(context['object_list']))
+    #     return context
 
 
 class CategoryList(BaseListView):
