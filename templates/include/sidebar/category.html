@@ -4,7 +4,7 @@
 <div class="side-bar-category">
     <ul class="side-bar-category-list">
         {% for category in categories %}
-            <li class="side-bar-category-list-item"><a href="{% url 'blog:category_list' category.name %}" class="side-bar-category-list-link">{{ category }}</a></li>
+            <li class="side-bar-category-list-item"><a href="{% url 'blog:category_list' category %}" class="side-bar-category-list-link">{{ category }}</a></li>
         {% endfor %}
     </ul>
 </div>

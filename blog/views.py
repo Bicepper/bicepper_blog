@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import ListView
 from django.views.generic import View
 from .models import BlogPost
-from .models import Category
+from .models import SubCategory
 
 
 class BaseListView(ListView):
@@ -18,13 +18,14 @@ class BaseListView(ListView):
 class PostList(BaseListView):
     def get_queryset(self):
         queryset = super().get_queryset()
+        print('これクエリセット：{}'.format(queryset.values_list(flat=True)))
         return queryset
 
 
 class CategoryList(BaseListView):
     def get_queryset(self):
         category_name = self.kwargs['category']
-        print(category_name)
-        category = Category.objects.get(name=category_name)
+        print('取れてる？{}'.format(category_name))
+        category = SubCategory.objects.get(name=category_name)
         queryset = super().get_queryset().filter(category=category)
         return queryset

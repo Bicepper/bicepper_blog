@@ -1,14 +1,12 @@
-from django.contrib.sites.shortcuts import get_current_site
 from .models import (
-    Category,
+    ParentCategory,
+    SubCategory,
     BlogPost,
 )
 
 
 def common(request):
-    site = get_current_site(request)
-    category = Category.objects.all()
-    print(category['slug'])
+    category = SubCategory.objects.all().values_list('slug', flat=True)
     context = {
         'categories': category,
     }
