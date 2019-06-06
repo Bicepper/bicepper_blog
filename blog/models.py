@@ -11,21 +11,43 @@ from froala_editor.fields import FroalaField
 
 
 class Category(models.Model):
-    name = models.CharField(_('カテゴリ名'), max_length=255)
+    name = models.CharField(_('カテゴリ名'), max_length=255, unique=True, default='')
+    parent_category = models.ForeignKey('self', related_name='sub_category', on_delete=models.CASCADE,
+                                        null=True, blank=True)
+    slug = models.SlugField(default='', unique=True)
 
     class Meta:
         verbose_name = _('カテゴリ')
         verbose_name_plural = _('カテゴリ')
 
     def __str__(self):
-        return self.name
+        full_path = [self.name]
+
+        k = self.parent_category
+        while k is not None:
+            full_path.append(k.name)
+            k = k.parent_category
+
+        return ' → '.join(full_path[::-1])
+
+
+# class SubCategory(models.Model):
+#     name = models.CharField(_('小カテゴリ名'), max_length=255)
+#     parent = models.ForeignKey('Category', on_delete=models.CASCADE)
+#
+#     class Meta:
+#         verbose_name = _('小カテゴリ')
+#         verbose_name_plural = _('小カテゴリ')
+#
+#     def __str__(self):
+#         return self.name
 
 
 class BlogPost(models.Model):
     author = models.ForeignKey('auth.User', blank=False, on_delete=models.CASCADE, verbose_name=_('作成者'))
     main_image = FileBrowseField("メイン画像", max_length=200, directory="media/uploads/thumbnail/",
                                  extensions=[".jpg", ".png"], blank=False, null=True)
-    category = models.ForeignKey('Category', verbose_name='カテゴリ', default=3, on_delete=models.PROTECT)
+    category = models.ForeignKey('Category', verbose_name='カテゴリ', default=1, on_delete=models.PROTECT)
     title = models.CharField(_('タイトル'), max_length=200, blank=False)
     description = models.TextField(_('記事概要'), max_length=108, default='', blank=False)
     content = FroalaField(_('内容'), default='', blank=False, null=False)
@@ -48,8 +70,16 @@ class BlogPost(models.Model):
         extension = os.path.splitext(filename)[-1]
         return prefix + name + extension
 
-    def summary(self):
-        return self.content[:30] + '...'
+    def get_cat_list(self):
+        k = self.category
+        breadcrumb = ["dummy"]
+        while k is not None:
+            breadcrumb.append(k.slug)
+            k = k.parent_category
+
+        for i in range(len(breadcrumb)-1):
+            breadcrumb[i] = '/'.join(breadcrumb[-1:i-1:-1])
+        return breadcrumb[-1:0:-1]
 
     def __str__(self):
         return self.title

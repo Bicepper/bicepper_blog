@@ -24,6 +24,7 @@ class PostList(BaseListView):
 class CategoryList(BaseListView):
     def get_queryset(self):
         category_name = self.kwargs['category']
+        print(category_name)
         category = Category.objects.get(name=category_name)
         queryset = super().get_queryset().filter(category=category)
         return queryset

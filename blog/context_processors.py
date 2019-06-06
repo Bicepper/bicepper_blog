@@ -7,7 +7,9 @@ from .models import (
 
 def common(request):
     site = get_current_site(request)
+    category = Category.objects.all()
+    print(category['slug'])
     context = {
-        'categories': Category.objects.all(),
+        'categories': category,
     }
     return context
