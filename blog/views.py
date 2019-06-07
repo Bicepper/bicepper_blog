@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic import ListView
 from django.views.generic import View
 from .models import BlogPost
+from .models import ParentCategory
 from .models import SubCategory
 
 
@@ -37,8 +38,9 @@ class CategoryList(BaseListView):
 
 class SubCategoryList(BaseListView):
     def get_queryset(self):
-        category_name = self.kwargs['category']
-        category = SubCategory.objects.get(name=category_name)
-        queryset = super().get_queryset().filter(category=category).values('category__parent__slug', 'category__slug')
+        category_name = self.kwargs['category__slug']
+        print('kwargsのデータ{}'.format(category_name))
+        category = SubCategory.objects.get(slug=category_name)
+        queryset = super().get_queryset().filter(category=category)
         return queryset
 

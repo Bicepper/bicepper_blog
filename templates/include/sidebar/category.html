@@ -3,8 +3,8 @@
 <h2 class="side-bar-title m-t-20">Category</h2>
 <div class="side-bar-category">
     <ul class="side-bar-category-list">
-        {% for category in categories %}
-            <li class="side-bar-category-list-item"><a href="{% url 'blog:sub_category_list' parent__slug slug %}" class="side-bar-category-list-link">{{ category }}</a></li>
+        {% for category in sub_categories %}
+            <li class="side-bar-category-list-item"><a href="{% url 'blog:sub_category_list' category.parent__slug category.slug %}" class="side-bar-category-list-link">{{ category.slug }}</a></li>
         {% endfor %}
     </ul>
 </div>

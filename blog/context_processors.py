@@ -6,9 +6,12 @@ from .models import (
 
 
 def common(request):
-    category = SubCategory.objects.all().values('parent__slug', 'slug')
+    category = ParentCategory.objects.all()
+    subcategory = SubCategory.objects.all().values('parent__slug', 'slug')
     print("ejwaofwjaifwae:{}".format(category))
+    print("dddddddddddddd:{}".format(subcategory))
     context = {
         'categories': category,
+        'sub_categories': subcategory,
     }
     return context
