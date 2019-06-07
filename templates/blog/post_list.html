@@ -9,12 +9,11 @@
                 <a href="#" class="blog-list-link text-decoration-none color-grey">
                     <div class="blog-thumbnail">
                         <img src="{% get_media_prefix %}{{ posts.main_image|safe }}" alt="" class="blog-thumbnail-image">
-                        <span class="blog-category-min">{{ posts.category }}</span>
+                        <span class="blog-category-min">{{ posts.category.parent.title }}</span>
                     </div>
                     <div class="blog-overview">
                         <h2 class="blog-title">{{ posts.title }}</h2>
                         <p class="blog-heading">{{ posts.description }}</p>
-                        <p>{{ posts.category.parent.title }}</p>
                         <div class="blog-postdate"><i class="far fa-calendar-alt"></i>&nbsp;{{ posts.created_date|date:"Y年m月j日" }}</div>
                     </div>
                 </a>

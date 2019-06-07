@@ -12,6 +12,7 @@ class BaseListView(ListView):
 
     def get_queryset(self):
         queryset = BlogPost.objects.filter(is_public=True).order_by('-created_date').select_related('category')
+        print(queryset.values('category__parent__slug', 'category__slug'))
         return queryset
 
 
@@ -29,7 +30,15 @@ class PostList(BaseListView):
 class CategoryList(BaseListView):
     def get_queryset(self):
         category_name = self.kwargs['category']
-        print('取れてる？{}'.format(category_name))
         category = SubCategory.objects.get(name=category_name)
         queryset = super().get_queryset().filter(category=category)
         return queryset
+
+
+class SubCategoryList(BaseListView):
+    def get_queryset(self):
+        category_name = self.kwargs['category']
+        category = SubCategory.objects.get(name=category_name)
+        queryset = super().get_queryset().filter(category=category).values('category__parent__slug', 'category__slug')
+        return queryset
+
