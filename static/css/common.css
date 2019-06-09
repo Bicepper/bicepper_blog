@@ -566,19 +566,19 @@ body{
 
 
 .side-bar-category-select{
-	/*width:100%;*/
-    /*min-height:45px;*/
-    /*padding:10px 8px 10px 8px;*/
-    /*list-style:none;*/
-    /*font-size:14px;*/
-    /*border:2px solid #dcdcdc;*/
-    /*border-radius:0;*/
-    /*color:#666;*/
-    /*background:#fff;*/
-    /*outline:none;*/
-    /*-webkit-appearance: none;*/
-    /*appearance:none;*/
-    /*cursor:pointer;*/
+	width:100%;
+    min-height:45px;
+    padding:10px 8px 10px 8px;
+    list-style:none;
+    font-size:14px;
+    border:2px solid #dcdcdc;
+    border-radius:0;
+    color:#666;
+    background:#fff;
+    outline:none;
+    -webkit-appearance: none;
+    appearance:none;
+    cursor:pointer;
 }
 
 
