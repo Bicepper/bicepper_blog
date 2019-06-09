@@ -7,7 +7,7 @@
         {% if object_list.all %}
             {% for posts in object_list %}
                 <article class="blog-list">
-                    <a href="#" class="blog-list-link text-decoration-none color-grey">
+                    <a href="{% url 'blog:detail' posts.pk %}" class="blog-list-link text-decoration-none color-grey">
                         <div class="blog-thumbnail">
                             <img src="{% get_media_prefix %}{{ posts.main_image|safe }}" alt="" class="blog-thumbnail-image">
                             <span class="blog-category-min">{{ posts.category.parent.title }}</span>
@@ -15,7 +15,8 @@
                         <div class="blog-overview">
                             <h2 class="blog-title">{{ posts.title }}</h2>
                             <p class="blog-heading">{{ posts.description }}</p>
-                            <div class="blog-postdate"><i class="far fa-calendar-alt"></i>&nbsp;{{ posts.created_date|date:"Y年m月j日" }}</div>
+                            <p>{{ posts.total_hits }}</p>
+                            <div class="blog-postdate"><i class="far fa-calendar-alt"></i>&nbsp;{{ posts.created_date|date:"Y.m.j" }}</div>
                         </div>
                     </a>
                 </article>
@@ -28,7 +29,6 @@
         {% include 'include/sidebar/author.html' %}
         {% include 'include/sidebar/search.html' %}
         {% include 'include/sidebar/ranking.html' %}
-        {% include 'include/sidebar/recent_post.html' %}
         {% include 'include/sidebar/category.html'%}
         {% include 'include/sidebar/archive.html' %}
         {% include 'include/sidebar/twitter.html' %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load blog_tag %}
+{% load hitcount_tags %}
+
+{% block content %}
+    <div class="left-column">
+        <p>{{ blogpost.hit_count.hits }}</p>
+        <p>astx</p>
+    </div>
+    <div class="side-bar">
+        {% include 'include/sidebar/author.html' %}
+        {% include 'include/sidebar/search.html' %}
+        {% include 'include/sidebar/ranking.html' %}
+        {% include 'include/sidebar/category.html'%}
+        {% include 'include/sidebar/archive.html' %}
+        {% include 'include/sidebar/twitter.html' %}
+    </div>
+{% endblock %}
+
+{% block inline_javascript %}
+
+{% load staticfiles %}
+<script src="{% static 'hitcount/jquery.postcsrf.js' %}"></script>
+
+{% get_hit_count_js_variables for post as hitcount %}
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+  $.postCSRF("{{ hitcount.ajax_url }}", { hitcountPK : "{{ hitcount.pk }}" })
+    .done(function(data){
+      $('<i />').text(data.hit_counted).attr('id','hit-counted-value').appendTo('#hit-counted');
+      $('#hit-response').text(data.hit_message);
+  }).fail(function(data){
+      console.log('POST failed');
+      console.log(data);
+  });
+});
+</script>
+
+
+{% endblock %}

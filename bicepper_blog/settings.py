@@ -50,6 +50,7 @@ THIRD_PARTY_APPS = [
     'filebrowser',
     'imagekit',
     'froala_editor',
+    'hitcount',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS

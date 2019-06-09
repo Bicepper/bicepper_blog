@@ -32,7 +32,7 @@
     <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/common.js' %}"></script>
 </head>
-<body id="top">
+<body id="top" class="body-frame">
     {% include 'include/head/nav.html' %}
 
     <div class="content">
@@ -41,5 +41,6 @@
     </div>
 
     {% include 'include/footer/footer.html' %}
+    {% block inline_javascript %}{% endblock %}
 </body>
 </html>

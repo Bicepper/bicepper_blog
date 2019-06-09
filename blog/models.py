@@ -2,12 +2,15 @@ import os
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
-from django.utils.safestring import mark_safe
+from django.contrib.contenttypes.fields import GenericRelation
+
 from uuid import uuid4
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill
 from filebrowser.fields import FileBrowseField
 from froala_editor.fields import FroalaField
+from hitcount.models import HitCount
+from hitcount.models import HitCountMixin
 
 
 class ParentCategory(models.Model):
@@ -35,7 +38,7 @@ class SubCategory(models.Model):
         return self.title
 
 
-class BlogPost(models.Model):
+class BlogPost(models.Model, HitCountMixin):
     author = models.ForeignKey('auth.User', blank=False, on_delete=models.CASCADE, verbose_name=_('作成者'))
     main_image = FileBrowseField("メイン画像", max_length=200, directory="media/uploads/thumbnail/",
                                  extensions=[".jpg", ".png"], blank=False, null=True)
@@ -46,6 +49,9 @@ class BlogPost(models.Model):
     created_date = models.DateTimeField(_('作成日'), default=timezone.now, blank=False)
     published_date = models.DateTimeField(_('更新日'), blank=True, null=True)
     is_public = models.BooleanField(_('公開設定'), default=True, help_text='非公開にする場合はチェックを入れる')
+    hit_count_generic = GenericRelation(
+        HitCount, object_id_field='object_pk',
+        related_query_name='hit_count_generic_relation')
 
     class Meta:
         verbose_name = _('投稿')

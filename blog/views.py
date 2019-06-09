@@ -1,5 +1,7 @@
+from django.http import Http404
 from django.shortcuts import render
 from django.views.generic import ListView
+from django.views.generic import DetailView
 from django.views.generic import View
 from .models import BlogPost
 from .models import ParentCategory
@@ -36,4 +38,16 @@ class SubCategoryList(BaseListView):
         category = SubCategory.objects.get(slug=category_name)
         queryset = super().get_queryset().filter(category=category)
         return queryset
+
+
+class PostDetailView(DetailView):
+    model = BlogPost
+    template_name = 'blog/post_detail.html'
+
+    def get_object(self, queryset=None):
+        post = super().get_object()
+        if post.is_public:
+            return post
+        else:
+            raise Http404
 
