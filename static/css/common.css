@@ -1021,3 +1021,9 @@ body{
     -ms-transform: scale(1.05);
     transform: scale(1.05);
 }
+
+.side-bar-twitter{
+    position:relative;
+    height:400px;
+    overflow:scroll;
+}
