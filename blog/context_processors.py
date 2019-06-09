@@ -8,8 +8,11 @@ from .models import (
 def common(request):
     category = ParentCategory.objects.all()
     subcategory = SubCategory.objects.all().values('parent__slug', 'slug')
+    ranking = BlogPost.objects.all().order_by('hit_count_generic')
+    print('ランキング:{}'.format(ranking))
     context = {
         'categories': category,
         'sub_categories': subcategory,
+        'ranking': ranking,
     }
     return context

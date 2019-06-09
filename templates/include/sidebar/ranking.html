@@ -3,40 +3,21 @@
 
 <h2 class="side-bar-title m-t-20"><i class="side-bar-title-icon fas fa-crown"></i><span>Ranking</span></h2>
 <ul class="side-bar-frame blogrank-list">
-    <li class="blogrank-list-unit">
-        <a href="blog.html" class="blogrank-list-link text-decoration-none">
-            <div class="blogrank-list-num">
-                <span class="blogrank-list-rank">1</span>
-                <img src="static/img/shutterstock_687488425-640x360.jpg" alt="" class="blogrank-list-image">
-            </div>
-            <div class="blogrank-list-desc">
-                <h2 class="blogrank-list-title">このブログデザインは完全対応！自分好みに変形可能！</h2>
-                <div class="blogrank-list-date">999 View</div>
-            </div>
-        </a>
-    </li>
-    <li class="blogrank-list-unit">
-        <a href="blog.html" class="blogrank-list-link text-decoration-none">
-            <div class="blogrank-list-num">
-                <span class="blogrank-list-rank">2</span>
-                <img src="static/img/shutterstock_687488425-640x360.jpg" alt="" class="blogrank-list-image">
-            </div>
-            <div class="blogrank-list-desc">
-                <h2 class="blogrank-list-title">このブログデザインは完全対応！自分好みに変形可能！</h2>
-                <div class="blogrank-list-date">23 View</div>
-            </div>
-        </a>
-    </li>
-    <li class="blogrank-list-unit">
-        <a href="blog.html" class="blogrank-list-link text-decoration-none">
-            <div class="blogrank-list-num">
-                <span class="blogrank-list-rank">3</span>
-                <img src="static/img/shutterstock_687488425-640x360.jpg" alt="" class="blogrank-list-image">
-            </div>
-            <div class="blogrank-list-desc">
-                <h2 class="blogrank-list-title">このブログデザインは完全対応！自分好みに変形可能！</h2>
-                <div class="blogrank-list-date">9899 View</div>
-            </div>
-        </a>
-    </li>
+
+
+    {% for rank in ranking %}
+        <li class="blogrank-list-unit">
+            <a href="{% url 'blog:detail' rank.pk %}" class="blogrank-list-link text-decoration-none">
+                <div class="blogrank-list-num">
+                    <span class="blogrank-list-rank">{{ forloop.counter }}</span>
+                    <img src="{% get_media_prefix %}{{ rank.main_image|safe }}" alt="" class="blogrank-list-image">
+                </div>
+                <div class="blogrank-list-desc">
+                    <h2 class="blogrank-list-title">{{ rank.title }}</h2>
+                    <div class="blogrank-list-date">{{ rank.hit_count.hits }} View</div>
+                </div>
+            </a>
+        </li>
+    {% endfor %}
+
 </ul>
