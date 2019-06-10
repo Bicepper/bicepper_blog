@@ -1,14 +1,14 @@
 {% load static %}
+{% regroup archive by created_date|date:"Y年m月" as post_archive_list %}
 
 <h2 class="side-bar-title m-t-20"><i class="side-bar-title-icon fas fa-archive"></i>Archive</h2>
-<div class="side-bar-category">
+<div class="side-bar-archive">
     <form action="">
-        <select name="" class="side-bar-category-select">
+        <select name="" class="side-bar-archive-select">
             <option value="0">月を選択</option>
-            <option value="1">2019年1月</option>
-            <option value="2">2019年2月</option>
-            <option value="3">2019年3月</option>
-            <option value="4">2019年4月</option>
+            {% for post_month in post_archive_list %}
+                <option value="1">{{ post_month.grouper }}（{{ post_month.list|length }}）</option>
+            {% endfor %}
         </select>
     </form>
 </div>

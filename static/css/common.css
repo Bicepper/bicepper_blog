@@ -529,10 +529,6 @@ body{
     background:#C6762F;
 }
 
-.side-bar-category{
-
-}
-
 .side-bar-ar{
     margin:16px 0 0 0;
 }
@@ -565,13 +561,13 @@ body{
 
 
 
-.side-bar-category-select{
-	width:100%;
+.side-bar-archive-select{
+    width:100%;
     min-height:45px;
-    padding:10px 8px 10px 8px;
+    padding:10px 26px 10px 14px;
     list-style:none;
     font-size:14px;
-    border:2px solid #dcdcdc;
+    border:none;
     border-radius:0;
     color:#666;
     background:#fff;
@@ -579,6 +575,24 @@ body{
     -webkit-appearance: none;
     appearance:none;
     cursor:pointer;
+}
+
+.side-bar-archive{
+    position:relative;
+}
+.side-bar-archive::after{
+    font-family:"Font Awesome 5 Free" !important;
+    content:'\f0dd';
+    font-weight: 900;
+    position:absolute;
+    top:22%;
+    right:2%;
+    font-size:20px;
+    color:#666;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all  0.2s ease;
 }
 
 
