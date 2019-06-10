@@ -6,6 +6,7 @@ register = template.Library()
 
 @register.filter(name="time_split", is_safe=True, needs_autoescape=True)
 def time_split(value, autoescape=True):
-    res = str(timezone.localtime(value))
-    display_time = res.split(" ")[0]
+    res = value.split("/")
+    print(res)
+    display_time = "{}年{}月".format(res[1], res[2])
     return display_time

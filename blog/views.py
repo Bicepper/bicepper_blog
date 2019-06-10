@@ -2,7 +2,7 @@ from django.http import Http404
 from django.shortcuts import render
 from django.views.generic import ListView
 from django.views.generic import DetailView
-from django.views.generic import View
+from django.views.generic import MonthArchiveView
 from .models import BlogPost
 from .models import ParentCategory
 from .models import SubCategory
@@ -38,6 +38,14 @@ class SubCategoryList(BaseListView):
         category = SubCategory.objects.get(slug=category_name)
         queryset = super().get_queryset().filter(category=category)
         return queryset
+
+
+class ArchiveList(MonthArchiveView):
+    model = BlogPost
+    template_name = 'blog/post_list.html'
+    date_field = 'created_date'
+    month_format = '%m'
+    queryset = BlogPost.objects.all()
 
 
 class PostDetailView(DetailView):
