@@ -487,6 +487,7 @@ body{
     justify-content:space-between;
     flex:1;
     padding:2px 15px 2px 10px;
+    word-break:break-all;
 }
 .blogrank-list-desc::after{
     font-family:"Font Awesome 5 Free" !important;
