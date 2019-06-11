@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.views.generic import ListView
 from django.views.generic import DetailView
 from django.views.generic import MonthArchiveView
+from django.db.models.functions import Trunc, TruncYear, TruncMonth
 from .models import BlogPost
 from .models import ParentCategory
 from .models import SubCategory
@@ -45,7 +46,11 @@ class ArchiveList(MonthArchiveView):
     template_name = 'blog/post_list.html'
     date_field = 'created_date'
     month_format = '%m'
-    queryset = BlogPost.objects.all()
+
+    def get_queryset(self):
+        queryset = BlogPost.objects.all()
+        print('クエリセット:{}'.format(queryset))
+        return queryset
 
 
 class PostDetailView(DetailView):
