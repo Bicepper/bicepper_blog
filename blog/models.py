@@ -1,9 +1,9 @@
 import os
+import pytz
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.contenttypes.fields import GenericRelation
-
 from uuid import uuid4
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill

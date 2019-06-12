@@ -8,6 +8,9 @@ from .models import BlogPost
 from .models import ParentCategory
 from .models import SubCategory
 
+import pytz
+import datetime
+
 
 class BaseListView(ListView):
     paginate_by = 10
@@ -41,15 +44,30 @@ class SubCategoryList(BaseListView):
         return queryset
 
 
-class ArchiveList(MonthArchiveView):
-    model = BlogPost
-    template_name = 'blog/post_list.html'
-    date_field = 'created_date'
-    month_format = '%m'
-
+# class ArchiveList(MonthArchiveView):
+#     model = BlogPost
+#     template_name = 'blog/post_list.html'
+#     date_field = 'created_date'
+#     month_format = '%m'
+#     year_format = '%Y'
+#     allow_future = True
+#
+#     def get_month(self):
+#         month = super(ArchiveList, self).get_month()
+#         return month
+#
+#     def get_year(self):
+#         year = super(ArchiveList, self).get_year()
+#         print('年:{}'.format(year))
+#         return year
+#
+#     def get_queryset(self):
+#         queryset = super().get_queryset()
+#         return queryset
+class ArchiveList(BaseListView):
     def get_queryset(self):
-        queryset = BlogPost.objects.all()
-        print('クエリセット:{}'.format(queryset))
+        queryset = BlogPost.objects.filter(created_date__year='2019', created_date__month='5')
+        print(queryset)
         return queryset
 
 
