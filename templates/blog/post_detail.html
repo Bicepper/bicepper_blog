@@ -5,6 +5,87 @@
 
 {% block content %}
     <div class="left-column">
+
+            <article class="blog-content-main">
+                <h2 class="blog-content-title">{{ blogpost.title }}</h2>
+                <div class="blog-content-time"><i class="far fa-calendar-alt"></i>&nbsp;{{ blogpost.created_date|date:"Y.m.j" }}&nbsp;&nbsp;/&nbsp;&nbsp;<i class="fas fa-history"></i>&nbsp;{{ blogpost.published_date }}</div>
+                <img src="{% get_media_prefix %}{{ blogpost.main_image|safe }}" alt="" class="blog-content-image">
+                <div class="blog-content-social-share">
+                    <div class="blog-content-social-share-segment"><img class="blog-content-social-share-icon" src="{% static "img/social-twitter-120.png" %}" alt="icon-twitter"></div>
+                    <div class="blog-content-social-share-segment"><img class="blog-content-social-share-icon" src="{% static "img/social-facebook-120.png" %}" alt="icon-facebook"></div>
+                    <div class="blog-content-social-share-segment"><img class="blog-content-social-share-icon" src="{% static "img/social-linkedin-120.png" %}" alt="icon-linkedin"></div>
+                    <div class="blog-content-social-share-segment"><img class="blog-content-social-share-icon" src="{% static "img/social-line-120.png" %}" alt="icon-line"></div>
+                </div>
+
+                <div class="blog-content-intro">
+                    <p>これはブログのイントロです。これはブログのイントロです。これはブログのイントロです。これはブログのイントロです。</p>
+                </div>
+                <div class="blog-content-index">
+                    <div class="blog-content-index-title">Contents</div>
+                    <ul class="blog-content-index-list">
+                        <li class="blog-content-index-list-item"><span class="blog-content-index-list-item-num">1</span>aaaadeadeaw</li>
+                        <li class="blog-content-index-list-item"><span class="blog-content-index-list-item-num">2</span>feawoifjeiwoajfeiwoa</li>
+                        <li class="blog-content-index-list-item"><span class="blog-content-index-list-item-num">3</span>fejkfewjalk</li>
+                    </ul>
+                </div>
+
+                {{ blogpost.content|safe }}
+
+                <div class="blog-content-social-share m-t-40">
+                    <div class="blog-content-social-share-segment"><img class="blog-content-social-share-icon" src="{% static "img/social-twitter-120.png" %}" alt="icon-twitter"></div>
+                    <div class="blog-content-social-share-segment"><img class="blog-content-social-share-icon" src="{% static "img/social-facebook-120.png" %}" alt="icon-facebook"></div>
+                    <div class="blog-content-social-share-segment"><img class="blog-content-social-share-icon" src="{% static "img/social-linkedin-120.png" %}" alt="icon-linkedin"></div>
+                    <div class="blog-content-social-share-segment"><img class="blog-content-social-share-icon" src="{% static "img/social-line-120.png" %}" alt="icon-line"></div>
+                </div>
+
+                <div class="blog-content-section">
+                    <h3 class="blog-content-section-title">RELATED POST</h3>
+                        <div class="blog-content-related">
+                            <article class="blog-content-related-item">
+                                <a href="blog.html" class="blog-content-related-item-link text-decoration-none color-grey">
+                                    <div class="blog-content-related-item-thumbnail">
+                                        <img src="static/img/shutterstock_687488425-640x360.jpg" alt="" class="blog-content-related-item-thumbnail-image">
+                                        <span class="blog-content-related-item-category-min">CODE</span>
+                                    </div>
+                                    <div class="blog-content-related-item-overview">
+                                        <h2 class="blog-content-related-item-title">このブログデザインは完全対応！自分好みに変形可能！</h2>
+                                        <div class="blog-postdate"><i class="far fa-calendar-alt"></i>&nbsp;2019年1月1日</div>
+                                    </div>
+                                </a>
+                            </article>
+                            <article class="blog-content-related-item">
+                                <a href="blog.html" class="blog-content-related-item-link text-decoration-none color-grey">
+                                    <div class="blog-content-related-item-thumbnail">
+                                        <img src="static/img/shutterstock_687488425-640x360.jpg" alt="" class="blog-content-related-item-thumbnail-image">
+                                        <span class="blog-content-related-item-category-min">CODE</span>
+                                    </div>
+                                    <div class="blog-content-related-item-overview">
+                                        <h2 class="blog-content-related-item-title">このブログデザインは完全対応！自分好みに変形可能！</h2>
+                                        <div class="blog-postdate"><i class="far fa-calendar-alt"></i>&nbsp;2019年1月1日</div>
+                                    </div>
+                                </a>
+                            </article>
+                            <article class="blog-content-related-item">
+                                <a href="blog.html" class="blog-content-related-item-link text-decoration-none color-grey">
+                                    <div class="blog-content-related-item-thumbnail">
+                                        <img src="static/img/shutterstock_687488425-640x360.jpg" alt="" class="blog-content-related-item-thumbnail-image">
+                                        <span class="blog-content-related-item-category-min">CODE</span>
+                                    </div>
+                                    <div class="blog-content-related-item-overview">
+                                        <h2 class="blog-content-related-item-title">このブログデザインは完全対応！自分好みに変形可能！</h2>
+                                        <div class="blog-postdate"><i class="far fa-calendar-alt"></i>&nbsp;2019年1月1日</div>
+                                    </div>
+                                </a>
+                            </article>
+                        </div>
+                </div>
+            </article>
+
+
+
+
+
+
         <p>{{ blogpost.hit_count.hits }}</p>
         <p>astx</p>
     </div>
