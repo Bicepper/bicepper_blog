@@ -39,8 +39,6 @@ $(function(){
     var archiveSelect = $('.js-side-bar-archive-select');
     archiveSelect.change(function(){
         var checkUrl = this.options[this.selectedIndex].value;
-        //URL変更してからのselectedは無理なので修正必要
-        var checkInd = archiveSelect.prop('selectedIndex');
         document.location.href = (checkUrl === 'home' ? '/' : checkUrl);
     });
 });

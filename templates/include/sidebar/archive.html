@@ -6,9 +6,9 @@
 <div class="side-bar-archive">
     <form action="">
         <select name="" class="side-bar-archive-select js-side-bar-archive-select">
-            <option value="home">月を選択</option>
+            <option value="home" {% if request.path == '/' %}selected{% endif %}>月を選択</option>
             {% for post_month in post_archive_list %}
-                <option value="{{ post_month.grouper }}" class="test">{{ post_month.grouper|time_split }}（{{ post_month.list|length }}）</option>
+                <option value="{{ post_month.grouper }}" class="test" {% if request.path == post_month.grouper %}selected{% endif %}>{{ post_month.grouper|time_split }}（{{ post_month.list|length }}）</option>
             {% endfor %}
         </select>
     </form>
