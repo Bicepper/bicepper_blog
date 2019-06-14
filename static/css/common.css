@@ -210,13 +210,13 @@ body{
 }
 @media screen and (min-width:600px) and ( max-width:1040px) {
     .left-column{
-        padding-right:65px;
+        padding-right:40px;
         width:70%;
     }
 }
 @media screen and (min-width:1041px) {
     .left-column{
-        padding-right:65px;
+        padding-right:40px;
         width:70%;
     }
 }
@@ -827,6 +827,8 @@ body{
 
 /**********************ブログ************************/
 .blog-content-main{
+    padding:20px 40px;
+    background:#fff;
     color:#3e3e3e;
 }
 .blog-content-image{

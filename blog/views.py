@@ -4,6 +4,8 @@ from django.views.generic import ListView
 from django.views.generic import DetailView
 from django.views.generic import MonthArchiveView
 from django.db.models.functions import Trunc, TruncYear, TruncMonth
+from django.contrib.sites.shortcuts import get_current_site
+from django.urls import resolve
 from .models import BlogPost
 from .models import ParentCategory
 from .models import SubCategory
@@ -65,12 +67,6 @@ class ArchiveList(MonthArchiveView):
         queryset = super().get_queryset()
         return queryset
 
-# class ArchiveList(BaseListView):
-#     def get_queryset(self):
-#         queryset = BlogPost.objects.filter(created_date__year='2019', created_date__month='5')
-#         print(queryset)
-#         return queryset
-
 
 class PostDetailView(DetailView):
     model = BlogPost
@@ -82,4 +78,20 @@ class PostDetailView(DetailView):
             return post
         else:
             raise Http404
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        current_site = get_current_site(self.request)
+        current_domain = current_site.domain
+        url = '{0}://{1}/{2}/{3}'.format(self.request.scheme, current_domain, resolve(self.request.path_info).url_name,
+                                         resolve(self.request.path_info).kwargs['pk'])
+
+        context['social_url'] = url
+        return context
+
+
+
+
+
 
