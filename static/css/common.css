@@ -843,7 +843,7 @@ body{
 .blog-content-time{
     margin:0 0 10px 0;
     text-align:right;
-    font-size:12px;
+    font-size:15px;
     color:#666666;
 }
 .blog-content-social-share{
@@ -857,8 +857,8 @@ body{
     align-items:center;
     justify-content:center;
     width:25%;
-    height:34px;
-    padding:8px;
+    height:36px;
+    transition: 0.25s;
 }
 .blog-content-social-share-segment:nth-child(1){
     background:#1DADEB;
@@ -872,6 +872,20 @@ body{
 .blog-content-social-share-segment:nth-child(3){
     background:#1178B3;
 }
+.blog-content-social-share-segment-link{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    height:100%;
+    padding:8px;
+}
+.blog-content-social-share-segment:hover,
+.blog-content-social-share-segment:focus{
+    box-shadow: 0 0.5em 0.5em -0.4em #000;
+    transform: translateY(-0.25em);
+}
+
 .blog-content-social-share-icon{
     color:#fff;
     width:auto;
