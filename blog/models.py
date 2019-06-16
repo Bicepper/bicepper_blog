@@ -52,6 +52,7 @@ class BlogPost(models.Model, HitCountMixin):
     hit_count_generic = GenericRelation(
         HitCount, object_id_field='object_pk',
         related_query_name='hit_count_generic_relation')
+    relation_posts = models.ManyToManyField('self', verbose_name='関連記事', blank=True)
 
     class Meta:
         verbose_name = _('投稿')
