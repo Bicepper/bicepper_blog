@@ -1,34 +1,53 @@
-import datetime
+from django.utils import timezone
 from django.http import Http404
 from django.shortcuts import render
 from django.views.generic import ListView
 from django.views.generic import DetailView
 from django.views.generic import MonthArchiveView
-from django.db.models.functions import Trunc, TruncYear, TruncMonth
 from django.contrib.sites.shortcuts import get_current_site
 from django.urls import resolve
+from django.core.paginator import Paginator
+from django.db.models import Q
 from .models import BlogPost
 from .models import ParentCategory
 from .models import SubCategory
-
-import pytz
-import datetime
+from .forms import BlogPostSearch
+from django.views.generic.edit import ModelFormMixin
 
 
 class BaseListView(ListView):
-    paginate_by = 10
     model = BlogPost
     template_name = 'blog/post_list.html'
+    paginate_by = 8
+    form_class = BlogPostSearch
 
     def get_queryset(self):
-        queryset = BlogPost.objects.filter(is_public=True, created_date__lt=datetime.datetime.now()).order_by('-created_date').select_related('category')
+        search_query = self.request.GET.get('search')
+        queryset = BlogPost.objects.filter(is_public=True, created_date__lt=timezone.localtime()) \
+            .order_by('-created_date').select_related('category')
+
+        if search_query is not None:
+            queryset = queryset.filter(
+                Q(title__icontains=search_query) | Q(content__icontains=search_query) |
+                Q(description__contains=search_query))
+
         return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['test_form'] = self.form_class()
+        return context
 
 
 class PostList(BaseListView):
+
     def get_queryset(self):
         queryset = super().get_queryset()
         return queryset
+
+    # def get(self, request, *args, **kwargs):
+    #     search_query = self.request.GET.get('title')
+    #     print('検索ワード:{}'.format(search_query))
 
 
 class CategoryList(BaseListView):
@@ -50,6 +69,7 @@ class SubCategoryList(BaseListView):
 class ArchiveList(MonthArchiveView):
     model = BlogPost
     template_name = 'blog/post_list.html'
+    paginate_by = 8
     date_field = 'created_date'
     month_format = '%m'
     year_format = '%Y'
@@ -91,8 +111,18 @@ class PostDetailView(DetailView):
         context['social_url'] = url
         return context
 
-
-
-
-
-
+# class PostSearch(ModelFormMixin, BaseListView):
+#     model = BlogPost
+#     form_class = BlogPostSearch
+#
+#     def get_queryset(self):
+#         queryset = super().get_queryset()
+#         search_query = self.request.GET.get('title')
+#         print('検索ワード:{}'.format(search_query))
+#         obj_list = self.model.objects.all()
+#         return obj_list
+#
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['test_form'] = self.form_class()
+#         return context
