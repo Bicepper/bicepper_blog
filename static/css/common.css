@@ -1069,3 +1069,25 @@ body{
     height:400px;
     overflow:scroll;
 }
+
+/**********************404************************/
+.page-notfound{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+}
+.page-notfound-icon{
+    font-size:150px;
+    color:#777777;
+}
+.page-notfound-404{
+    margin-top:20px;
+    font-size:80px;
+    color:#777777;
+}
+.page-notfound-text{
+    margin-top:10px;
+    font-size:30px;
+    color:#D3D3D3;
+}

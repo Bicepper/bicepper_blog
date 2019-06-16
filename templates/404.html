@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="left-column">
+        <div class="page-notfound">
+            <p class="page-notfound-icon"><i class="far fa-frown"></i></p>
+            <p class="page-notfound-404">404</p>
+            <p class="page-notfound-text">PAGE NOT FOUND</p>
+        </div>
+    </div>
+    <div class="side-bar">
+        {% include 'include/sidebar/author.html' %}
+        {% include 'include/sidebar/search.html' %}
+        {% include 'include/sidebar/ranking.html' %}
+        {% include 'include/sidebar/category.html'%}
+        {% include 'include/sidebar/archive.html' %}
+        {% include 'include/sidebar/twitter.html' %}
+    </div>
+{% endblock %}
