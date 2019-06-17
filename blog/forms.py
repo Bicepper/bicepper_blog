@@ -15,10 +15,10 @@ class BlogPostSearch(forms.Form):
 
 SUBJECT_CHOICES = (
     ('', '選択してください'),
-    (0, 'ブログの内容について'),
-    (1, '個人情報について'),
-    (2, '著作権について'),
-    (3, 'その他'),
+    ('ブログの内容について', 'ブログの内容について'),
+    ('個人情報について', '個人情報について'),
+    ('著作権について', '著作権について'),
+    ('その他', 'その他'),
 )
 
 
@@ -58,7 +58,7 @@ class ContactForm(forms.Form):
     )
 
     def send_email(self):
-        subject = self.cleaned_data['subject'].value
+        subject = self.cleaned_data['subject']
         message = self.cleaned_data['message']
         name = self.cleaned_data['name']
         email = self.cleaned_data['email']
