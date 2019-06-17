@@ -1,20 +1,20 @@
 from django.utils import timezone
 from django.http import Http404
-from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views.generic import ListView
 from django.views.generic import DetailView
 from django.views.generic import MonthArchiveView
 from django.views.generic import TemplateView
+from django.views.generic import FormView
 from django.contrib.sites.shortcuts import get_current_site
 from django.urls import resolve
-from django.core.paginator import Paginator
 from django.db.models import Q
 from .models import BlogPost
 from .models import ParentCategory
 from .models import SubCategory
 from .forms import BlogPostSearch
+from .forms import ContactForm
 from .models import Profile
-from django.views.generic.edit import ModelFormMixin
 
 
 class BaseListView(ListView):
@@ -41,19 +41,13 @@ class BaseListView(ListView):
         context = super().get_context_data(**kwargs)
         context['test_form'] = self.form_class()
         context['search_text'] = self.search_text
-        print('確認:{}'.format(self.search_text))
         return context
 
 
 class PostList(BaseListView):
-
     def get_queryset(self):
         queryset = super().get_queryset()
         return queryset
-
-    # def get(self, request, *args, **kwargs):
-    #     search_query = self.request.GET.get('title')
-    #     print('検索ワード:{}'.format(search_query))
 
 
 class CategoryList(BaseListView):
@@ -130,12 +124,29 @@ class PostDetailView(DetailView):
 class ProfileView(TemplateView):
     model = Profile
     template_name = 'profile.html'
+    form_class = BlogPostSearch
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data()
         context['profile'] = Profile.objects.all()
+        context['test_form'] = self.form_class()
         return context
 
 
+class ContactView(FormView):
+    template_name = 'contact/contact.html'
+    form_class = ContactForm
+    success_url = reverse_lazy('contact_result')
+
+    def form_valid(self, form):
+        form.send_email()
+        return super().form_valid(form)
 
 
+class ContactResultView(TemplateView):
+    template_name = 'contact/contact_result.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['success'] = 'お問い合わせは正常に送信されました。'
+        return context

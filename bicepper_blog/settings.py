@@ -33,6 +33,14 @@ else:
     ALLOWED_HOSTS = ["bicepper.com", ]
 
 
+# Gmail で送信する場合
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'muscleconsole@gmail.com'
+EMAIL_HOST_PASSWORD = 'lbspwtnzezdltdpm'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+
 # Application definition
 DJANGO_APPS = [
     'django.contrib.contenttypes',

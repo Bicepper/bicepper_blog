@@ -4,16 +4,14 @@
 {% block content %}
     <div class="left-column">
         <article class="blog-content-main">
-            {% for obj in profile %}
-                {{ obj.content|safe }}
-            {% endfor %}
+            <p>{{ success }}。</p>
         </article>
     </div>
     <div class="side-bar">
         {% include 'include/sidebar/author.html' %}
         {% include 'include/sidebar/search.html' %}
         {% include 'include/sidebar/ranking.html' %}
-        {% include 'include/sidebar/category.html'%}
+        {% include 'include/sidebar/category.html' %}
         {% include 'include/sidebar/archive.html' %}
         {% include 'include/sidebar/twitter.html' %}
     </div>
