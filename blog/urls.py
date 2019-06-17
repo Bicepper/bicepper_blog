@@ -5,7 +5,7 @@ from .views import (
     SubCategoryList,
     ArchiveList,
     PostDetailView,
-    # PostSearch,
+    ProfileView,
 )
 
 app_name = 'blog'
@@ -16,5 +16,5 @@ urlpatterns = [
          name='sub_category_list'),
     path('<int:year>/<int:month>', ArchiveList.as_view(), name='archive_list'),
     path('detail/<int:pk>', PostDetailView.as_view(), name='detail'),
-    # path('search/', PostSearch.as_view(), name='search'),
+    path('profile', ProfileView.as_view(), name='profile'),
 ]

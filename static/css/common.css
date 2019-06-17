@@ -1091,3 +1091,12 @@ body{
     font-size:30px;
     color:#D3D3D3;
 }
+
+/**********************Search************************/
+.search-result-text{
+    padding:10px;
+    font-size:30px;
+    margin-bottom:20px;
+    word-break: break-all;
+    line-height:1.5;
+}

@@ -4,6 +4,9 @@
 
 {% block content %}
     <div class="left-column">
+        {% if search_text != None %}
+            <div class="search-result-text">「{{ search_text }}」の検索結果</div>
+        {% endif %}
         {% if object_list.all %}
             {% for posts in object_list %}
                 <article class="blog-list">
@@ -22,7 +25,9 @@
                 </article>
             {% endfor %}
         {% else %}
-            <p>nothing</p>
+            <article class="blog-content-main">
+                <p>記事が見つかりませんでした。</p>
+            </article>
         {% endif %}
 
         {% if is_paginated %}

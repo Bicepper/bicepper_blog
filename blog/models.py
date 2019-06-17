@@ -74,3 +74,21 @@ class BlogPost(models.Model, HitCountMixin):
 
     def __str__(self):
         return self.title
+
+
+class Profile(models.Model):
+    name = models.CharField(_('名前（表示名）'), blank=False, max_length=255)
+    author_image = FileBrowseField("メイン画像", max_length=200, directory="media/uploads/profile/",
+                                   extensions=[".jpg", ".png"], blank=False, null=True)
+    content = FroalaField(_('内容'), default='', blank=False, null=False)
+    created_date = models.DateTimeField(_('作成日'), default=timezone.now, blank=False)
+    published_date = models.DateTimeField(_('更新日'), blank=True, null=True)
+    is_public = models.BooleanField(_('公開設定'), default=True, help_text='非公開にする場合はチェックを入れる')
+
+    class Meta:
+        verbose_name = _('プロフィール')
+        verbose_name_plural = _('プロフィール')
+
+    def __str__(self):
+        return self.name
+

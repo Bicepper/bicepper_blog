@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.views.generic import ListView
 from django.views.generic import DetailView
 from django.views.generic import MonthArchiveView
+from django.views.generic import TemplateView
 from django.contrib.sites.shortcuts import get_current_site
 from django.urls import resolve
 from django.core.paginator import Paginator
@@ -12,6 +13,7 @@ from .models import BlogPost
 from .models import ParentCategory
 from .models import SubCategory
 from .forms import BlogPostSearch
+from .models import Profile
 from django.views.generic.edit import ModelFormMixin
 
 
@@ -20,9 +22,11 @@ class BaseListView(ListView):
     template_name = 'blog/post_list.html'
     paginate_by = 8
     form_class = BlogPostSearch
+    search_text = None
 
     def get_queryset(self):
         search_query = self.request.GET.get('search')
+        self.search_text = search_query
         queryset = BlogPost.objects.filter(is_public=True, created_date__lt=timezone.localtime()) \
             .order_by('-created_date').select_related('category')
 
@@ -36,6 +40,8 @@ class BaseListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['test_form'] = self.form_class()
+        context['search_text'] = self.search_text
+        print('確認:{}'.format(self.search_text))
         return context
 
 
@@ -74,6 +80,7 @@ class ArchiveList(MonthArchiveView):
     month_format = '%m'
     year_format = '%Y'
     allow_future = True
+    form_class = BlogPostSearch
 
     def get_month(self):
         month = super(ArchiveList, self).get_month()
@@ -88,10 +95,17 @@ class ArchiveList(MonthArchiveView):
         queryset = super().get_queryset()
         return queryset
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data()
+        context['test_form'] = self.form_class()
+
+        return context
+
 
 class PostDetailView(DetailView):
     model = BlogPost
     template_name = 'blog/post_detail.html'
+    form_class = BlogPostSearch
 
     def get_object(self, queryset=None):
         post = super().get_object()
@@ -109,20 +123,19 @@ class PostDetailView(DetailView):
                                          resolve(self.request.path_info).kwargs['pk'])
 
         context['social_url'] = url
+        context['test_form'] = self.form_class()
         return context
 
-# class PostSearch(ModelFormMixin, BaseListView):
-#     model = BlogPost
-#     form_class = BlogPostSearch
-#
-#     def get_queryset(self):
-#         queryset = super().get_queryset()
-#         search_query = self.request.GET.get('title')
-#         print('検索ワード:{}'.format(search_query))
-#         obj_list = self.model.objects.all()
-#         return obj_list
-#
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context['test_form'] = self.form_class()
-#         return context
+
+class ProfileView(TemplateView):
+    model = Profile
+    template_name = 'profile.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        context['profile'] = Profile.objects.all()
+        return context
+
+
+
+
