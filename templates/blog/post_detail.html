@@ -8,7 +8,7 @@
 
             <article class="blog-content-main">
                 <h2 class="blog-content-title">{{ blogpost.title }}</h2>
-                <div class="blog-content-time"><i class="far fa-calendar-alt"></i>&nbsp;{{ blogpost.created_date|date:"Y.m.j" }}&nbsp;&nbsp;/&nbsp;&nbsp;<i class="fas fa-history"></i>&nbsp;{{ blogpost.published_date }}</div>
+                <div class="blog-content-time"><i class="far fa-calendar-alt"></i>&nbsp;{{ blogpost.created_date|date:"Y.m.j" }}{% if blogpost.published_date is not None %}&nbsp;&nbsp;/&nbsp;&nbsp;<i class="fas fa-history"></i>&nbsp;{{ blogpost.published_date|date:"Y.m.j" }}{% endif %}</div>
                 <img src="{% get_media_prefix %}{{ blogpost.main_image|safe }}" alt="" class="blog-content-image">
                 <div class="blog-content-social-share">
                     <div class="blog-content-social-share-segment"><a href="https://twitter.com/share?url={{ social_url }}&text={{ blogpost.title }} - Bicepper.com" target="_blank" rel="nofollow" class="blog-content-social-share-segment-link"><img class="blog-content-social-share-icon" src="{% static "img/social-twitter-120.png" %}" alt="icon-twitter"><span class="blog-content-social-share-text">Tweet</span></a></div>

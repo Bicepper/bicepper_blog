@@ -4,7 +4,8 @@
 {% block content %}
     <div class="left-column">
         <article class="blog-content-main">
-            <form method="POST" id="contact_form">
+            <p class="normal-lineheight">以下の項目を記入のうえ、送信してください。<br>確認し次第、返信させていただきます。</p>
+            <form method="POST" id="contact_form" class="m-t-20">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <input type="hidden" name="g-recaptcha-response" id='recaptcha'>
