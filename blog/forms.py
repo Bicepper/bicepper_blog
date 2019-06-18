@@ -27,7 +27,7 @@ class ContactForm(forms.Form):
         label='',
         max_length=100,
         widget=forms.TextInput(attrs={
-            'class': 'form-control',
+            'class': 'form-control-input',
             'placeholder': 'お名前',
         }),
         required=True
@@ -35,7 +35,7 @@ class ContactForm(forms.Form):
     email = forms.EmailField(
         label='',
         widget=forms.EmailInput(attrs={
-            'class': 'form-control',
+            'class': 'form-control-input',
             'placeholder': 'メールアドレス',
         }),
         required=True
@@ -43,7 +43,7 @@ class ContactForm(forms.Form):
     subject = forms.ChoiceField(
         label='',
         widget=forms.Select(attrs={
-            'class': 'form-control',
+            'class': 'form-control-select',
             'placeholder': '種別',
         }),
         choices=SUBJECT_CHOICES,
@@ -51,7 +51,7 @@ class ContactForm(forms.Form):
     message = forms.CharField(
         label='',
         widget=forms.Textarea(attrs={
-            'class': 'form-control',
+            'class': 'form-control-field',
             'placeholder': 'お問い合わせ内容',
         }),
         required=True

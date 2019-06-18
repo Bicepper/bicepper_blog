@@ -1118,3 +1118,63 @@ body{
     word-break: break-all;
     line-height:1.5;
 }
+
+/**********************ContactForm************************/
+.form-control-input{
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    outline: 0;
+    width: 100%;
+    font-size: 16px;
+}
+
+.form-control-select{
+    width:100%;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    list-style:none;
+    font-size:16px;
+    border: 1px solid #e5e5e5;
+    border-radius:3px;
+    outline:none;
+    -webkit-appearance: none;
+    appearance:none;
+    cursor:pointer;
+    background:#fff;
+}
+
+.form-control-field{
+    width: 100%;
+    max-width:100%;
+    min-width:100%;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    outline: 0;
+    font-size: 16px;
+}
+
+.form-control-button{
+    display: inline-block;
+    padding: 15px 50px;
+    font-size: 16px;
+    background: #01C6BE;
+    color: #fff;
+    border-radius: 3px;
+    border: 0;
+    outline: 0;
+    cursor:pointer;
+    line-height:1;
+    font-weight:700;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all  0.2s ease;
+}
+
+.form-control-button:hover{
+    opacity:0.8;
+}

@@ -1,3 +1,7 @@
+import json
+from urllib import parse
+from urllib import request
+from django.contrib import messages
 from django.utils import timezone
 from django.http import Http404
 from django.urls import reverse_lazy
@@ -9,6 +13,7 @@ from django.views.generic import FormView
 from django.contrib.sites.shortcuts import get_current_site
 from django.urls import resolve
 from django.db.models import Q
+from django.conf import settings
 from .models import BlogPost
 from .models import ParentCategory
 from .models import SubCategory
@@ -143,11 +148,38 @@ class ContactView(FormView):
         context.update({
             'test_form': BlogPostSearch
         })
+        context['recaptcha_site_id'] = settings.GOOGLE_RECAPTCHA_SITE_KEY
         return context
 
     def form_valid(self, form):
         form.send_email()
-        return super().form_valid(form)
+
+        # recaptcha取得
+        recaptcha_response = self.request.POST.get('g-recaptcha-response')
+        print('recaptcha_response:{}'.format(recaptcha_response))
+        url = 'https://www.google.com/recaptcha/api/siteverify'
+        payload = {
+            'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY,
+            'response': recaptcha_response
+        }
+        data = parse.urlencode(payload).encode()
+        req = request.Request(url, data=data)
+
+        # 送信
+        print('ここは？')
+        # 送信されたトークンが有効であることを確認
+        response = request.urlopen(req)
+        result = json.loads(response.read().decode())
+
+        print('返却値:{}'.format(result))
+
+        if (not result['success']) or (not result['action'] == 'signup'):  # make sure action matches the one from your template
+            messages.error(self.request, 'reCAPTCHAの承認に失敗しました。時間を置いて再度お試しください。')
+            print('失敗？')
+            return super().form_invalid(form)
+        else:
+            print('ここまで通ってる')
+            return super().form_valid(form)
 
 
 class ContactResultView(TemplateView):
