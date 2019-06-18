@@ -156,7 +156,6 @@ class ContactView(FormView):
 
         # recaptcha取得
         recaptcha_response = self.request.POST.get('g-recaptcha-response')
-        print('recaptcha_response:{}'.format(recaptcha_response))
         url = 'https://www.google.com/recaptcha/api/siteverify'
         payload = {
             'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY,
@@ -165,15 +164,13 @@ class ContactView(FormView):
         data = parse.urlencode(payload).encode()
         req = request.Request(url, data=data)
 
-        # 送信
-        print('ここは？')
         # 送信されたトークンが有効であることを確認
         response = request.urlopen(req)
         result = json.loads(response.read().decode())
 
         print('返却値:{}'.format(result))
 
-        if (not result['success']) or (not result['action'] == 'signup'):  # make sure action matches the one from your template
+        if not result['success']:  # make sure action matches the one from your template
             messages.error(self.request, 'reCAPTCHAの承認に失敗しました。時間を置いて再度お試しください。')
             print('失敗？')
             return super().form_invalid(form)
@@ -184,8 +181,10 @@ class ContactView(FormView):
 
 class ContactResultView(TemplateView):
     template_name = 'contact/contact_result.html'
+    form_class = BlogPostSearch
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['success'] = 'お問い合わせは正常に送信されました。'
+        context['test_form'] = BlogPostSearch
         return context
