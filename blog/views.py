@@ -138,6 +138,13 @@ class ContactView(FormView):
     form_class = ContactForm
     success_url = reverse_lazy('contact_result')
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        context.update({
+            'test_form': BlogPostSearch
+        })
+        return context
+
     def form_valid(self, form):
         form.send_email()
         return super().form_valid(form)
