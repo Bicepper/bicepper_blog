@@ -212,9 +212,10 @@ body {
 .nav-list {
     position: relative;
     display: flex;
-    align-items: stretch;
+    align-items: center;
     justify-content: center;
     flex-direction: column;
+    min-width:100px;
     height: 100%;
 }
 
@@ -222,6 +223,8 @@ body {
     position: relative;
     display: flex;
     align-items: center;
+    justify-content: center;
+    width:100%;
     height: 100%;
     padding: 0 18px;
     font-weight: bold;
@@ -256,19 +259,24 @@ body {
     top: 70px;
     min-width: 100%;
     list-style: none;
+    display:none;
 }
 
 .nav-link-sub-link {
     position: relative;
     display: flex;
     align-items: center;
+    justify-content: center;
     height: 50px;
-    padding: 0 18px;
     font-weight: bold;
     font-size: 14px;
     color:#fff;
     background: #4054B2;
     border-top: 1px solid #fff;
+}
+
+.nav-list:hover > .nav-list-sub{
+    display:block;
 }
 
 /**********************Content************************/

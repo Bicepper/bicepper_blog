@@ -168,14 +168,10 @@ class ContactView(FormView):
         response = request.urlopen(req)
         result = json.loads(response.read().decode())
 
-        print('返却値:{}'.format(result))
-
         if not result['success']:  # make sure action matches the one from your template
             messages.error(self.request, 'reCAPTCHAの承認に失敗しました。時間を置いて再度お試しください。')
-            print('失敗？')
             return super().form_invalid(form)
         else:
-            print('ここまで通ってる')
             return super().form_valid(form)
 
 
