@@ -1,10 +1,13 @@
 {% load static %}
+{% regroup sub_categories by category__slug as sub_cat %}
 
 <h2 class="side-bar-title m-t-20"><i class="side-bar-title-icon fas fa-th-list"></i>Category</h2>
 <div class="side-bar-frame side-bar-category">
+    {{ sub_cat }}
     <ul class="side-bar-category-list">
-        {% for category in sub_categories %}
-            <li class="side-bar-category-list-item"><a href="{% url 'blog:sub_category_list' category.parent__slug category.slug %}" class="side-bar-category-list-link">{{ category.slug }} （1）</a></li>
+        {% for cat_item in sub_cat %}
+{#            <li>{{ cat_item.list }}</li>#}
+{#            <li class="side-bar-category-list-item"><a href="{% url 'blog:sub_category_list' cat_item.list.category__parent__slug cat_item.grouper %}" class="side-bar-category-list-link">{{ category.grouper }} （{{ category.grouper|length }}）</a></li>#}
         {% endfor %}
     </ul>
 </div>

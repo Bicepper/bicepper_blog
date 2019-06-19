@@ -4,6 +4,7 @@
 
 <h2 class="side-bar-title m-t-20"><i class="side-bar-title-icon fas fa-archive"></i>Archive</h2>
 <div class="side-bar-archive">
+{{ post_archive_list }}
     <form action="">
         <select name="" class="side-bar-archive-select js-side-bar-archive-select">
             <option value="home" {% if request.path == '/' %}selected{% endif %}>月を選択</option>

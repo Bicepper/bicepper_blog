@@ -215,7 +215,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    min-width:100px;
+    min-width:110px;
     height: 100%;
 }
 
@@ -273,6 +273,10 @@ body {
     color:#fff;
     background: #4054B2;
     border-top: 1px solid #fff;
+}
+
+.nav-link-sub-link:hover{
+    background:#6273BE;
 }
 
 .nav-list:hover > .nav-list-sub{
