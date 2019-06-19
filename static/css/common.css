@@ -254,6 +254,7 @@ body {
 .nav-list-sub {
     position: absolute;
     top: 70px;
+    min-width: 100%;
     list-style: none;
 }
 
@@ -261,12 +262,13 @@ body {
     position: relative;
     display: flex;
     align-items: center;
-    height: 70px;
+    height: 50px;
     padding: 0 18px;
     font-weight: bold;
     font-size: 14px;
     color:#fff;
     background: #4054B2;
+    border-top: 1px solid #fff;
 }
 
 /**********************Content************************/
