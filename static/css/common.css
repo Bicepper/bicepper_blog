@@ -198,7 +198,7 @@ body {
 }
 
 .header-theme_00 {
-    background: #4054B2;
+    background: #667eea;
 }
 
 .nav {
@@ -215,7 +215,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    min-width:110px;
+    min-width: 110px;
     height: 100%;
 }
 
@@ -224,7 +224,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width:100%;
+    width: 100%;
     height: 100%;
     padding: 0 18px;
     font-weight: bold;
@@ -259,7 +259,7 @@ body {
     top: 70px;
     min-width: 100%;
     list-style: none;
-    display:none;
+    display: none;
 }
 
 .nav-link-sub-link {
@@ -270,17 +270,17 @@ body {
     height: 50px;
     font-weight: bold;
     font-size: 14px;
-    color:#fff;
+    color: #fff;
     background: #4054B2;
     border-top: 1px solid #fff;
 }
 
-.nav-link-sub-link:hover{
-    background:#6273BE;
+.nav-link-sub-link:hover {
+    background: #6273BE;
 }
 
-.nav-list:hover > .nav-list-sub{
-    display:block;
+.nav-list:hover > .nav-list-sub {
+    display: block;
 }
 
 /**********************Content************************/
@@ -1020,12 +1020,21 @@ body {
     text-decoration: none;
 }
 
-
-/**********************ブログ************************/
-.blog-content-main {
-    padding: 20px 40px;
+.content-overwrap {
     background: #fff;
     color: #3e3e3e;
+}
+
+.content-innerwrap {
+    padding: 20px 40px;
+}
+
+/**********************ブログ************************/
+
+.alert-old-post{
+    background:#fff;
+    padding:4px;
+    font-size:0.8rem;
 }
 
 .blog-content-image {
@@ -1035,8 +1044,11 @@ body {
 
 .blog-content-title {
     margin: 0 0 20px 0;
-    color: #3e3e3e;
-    font-size: 26px;
+    padding: 30px 40px;
+    color: #fff;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    background: linear-gradient(90deg, #667eea, #764ba2);
 }
 
 .blog-content-time {
