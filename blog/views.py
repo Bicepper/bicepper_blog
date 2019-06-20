@@ -1,4 +1,5 @@
 import json
+import datetime
 from urllib import parse
 from urllib import request
 from django.contrib import messages
@@ -116,13 +117,20 @@ class PostDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
+        # social用のURL生成
         current_site = get_current_site(self.request)
         current_domain = current_site.domain
         url = '{0}://{1}/{2}/{3}'.format(self.request.scheme, current_domain, resolve(self.request.path_info).url_name,
                                          resolve(self.request.path_info).kwargs['pk'])
 
+        # 現在日時と投稿日の差を取得
+        now_time = datetime.datetime.now()
+        post_time = BlogPost.objects.filter(pk=self.kwargs['pk']).values('created_date')[0]['created_date'].replace(tzinfo=None)
+
         context['social_url'] = url
         context['test_form'] = self.form_class()
+        context['time_elapsed'] = int(str(now_time - post_time).split()[0])
+
         return context
 
 

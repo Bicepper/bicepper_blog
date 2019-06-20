@@ -8,7 +8,9 @@
             <article class="content-overwrap">
                 <h2 class="blog-content-title">{{ blogpost.title }}</h2>
                 <div class="content-innerwrap">
-                    <div class="alert-old-post"><i class="fas fa-exclamation-triangle"></i> この記事は公開から1年以上経過しています。</div>
+                    {% if time_elapsed > 365 %}
+                        <div class="alert-old-post"><i class="fas fa-exclamation-triangle"></i> この記事は公開から1年以上経過しています。</div>
+                    {% endif %}
 
                     <div class="blog-content-time"><i class="far fa-calendar-alt"></i>&nbsp;{{ blogpost.created_date|date:"Y-m-j" }}{% if blogpost.published_date is not None %}&nbsp;&nbsp;/&nbsp;&nbsp;<i class="fas fa-history"></i>&nbsp;{{ blogpost.published_date|date:"Y-m-j" }}{% endif %}</div>
 
