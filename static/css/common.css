@@ -1043,6 +1043,7 @@ body {
 .blog-content-image {
     width: 100%;
     height: auto;
+    margin-bottom:10px;
 }
 
 .blog-content-title {
@@ -1073,48 +1074,81 @@ body {
     align-items: center;
     justify-content: center;
     width: 25%;
-    height: 36px;
     transition: 0.25s;
 }
 
 .blog-content-social-share-segment:nth-child(1) {
-    background: #1DADEB;
+    /*background: #1DADEB;*/
 }
 
 .blog-content-social-share-segment:nth-child(2) {
-    background: #3C5B96;
+    /*background: #3C5B96;*/
 }
 
 .blog-content-social-share-segment:nth-child(4) {
-    background: #6FC45B;
+    /*background: #6FC45B;*/
 }
 
 .blog-content-social-share-segment:nth-child(3) {
-    background: #1178B3;
+    /*background: #1178B3;*/
 }
 
 .blog-content-social-share-segment-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    padding: 8px;
-    text-decoration: none;
-    color: #fff;
+  flex: 1 1 auto;
+  margin: 10px;
+  padding: 20px;
+  border: 2px solid #f7f7f7;
+  text-align: center;
+  text-transform: uppercase;
+  position: relative;
+  overflow:hidden;
+  transition: .3s;
+}
+.blog-content-social-share-segment-link:after{
+    position: absolute;
+    transition: .3s;
+    content: '';
+    width: 0;
+    bottom: 0;
+    background: #f7f7f7;
+    height: 120%;
+    left: -10%;
+    transform: skewX(15deg);
+    z-index: -1;
+}
+.blog-content-social-share-segment-link .fa-twitter{
+
 }
 
-.blog-content-social-share-segment:hover,
-.blog-content-social-share-segment:focus {
-    box-shadow: 0 0.5em 0.5em -0.4em #000;
-    transform: translateY(-0.25em);
+.blog-content-social-share-segment-link:hover{
+    color: #5bcaff;
+}
+.blog-content-social-share-segment-link:hover:after{
+      left: -10%;
+      width: 120%;
+}
+
+
+
+.blog-content-social-share-segment-link:hover .blog-content-social-share-icon-twitter{
+    background:#1DADEB;
+}
+.blog-content-social-share-segment-link:hover .fa-twitter{
+    color:#fff;
 }
 
 .blog-content-social-share-icon {
-    color: #fff;
-    width: auto;
-    height: 100%;
-    margin-right: 10px;
+    display: block;
+    margin: 0 auto;
+    font-size: 1.6rem;
+}
+
+.blog-content-social-share-icon-twitter{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+    height:100%;
 }
 
 .blog-content-social-share-text {
