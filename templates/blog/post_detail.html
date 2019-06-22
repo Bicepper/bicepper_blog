@@ -35,6 +35,10 @@
                             <i class="fab fa-line"></i>
                             <span class="social-text">Line</span>
                         </a>
+                        <a href="https://b.hatena.ne.jp/add?mode=confirm&url={{ social_url }}&title={{ blogpost.title }}" target="_blank" rel="nofollow" class="blog-content-social-share-segment-link">
+                            <i class="fab fa-hatena"></i>
+                            <span class="social-text">Hatena</span>
+                        </a>
                     </div>
 
                     <div class="blog-content-intro">
@@ -43,19 +47,39 @@
                     <div class="blog-content-index">
                         <div class="blog-content-index-title">Contents</div>
                         <ul class="blog-content-index-list">
-                            <li class="blog-content-index-list-item"><span class="blog-content-index-list-item-num">1</span>aaaadeadeaw</li>
-                            <li class="blog-content-index-list-item"><span class="blog-content-index-list-item-num">2</span>feawoifjeiwoajfeiwoa</li>
-                            <li class="blog-content-index-list-item"><span class="blog-content-index-list-item-num">3</span>fejkfewjalk</li>
+                            <li class="blog-content-index-list-item">aaaadeadeaw</li>
+                            <li class="blog-content-index-list-item">feawoifjeiwoajfeiwoa</li>
+                            <li class="blog-content-index-list-item">fejkfewjalk</li>
                         </ul>
                     </div>
 
-                    {{ blogpost.content|safe }}
+                    <div class="blog-content-main">
+                        {{ blogpost.content|safe }}
+                    </div>
 
-                    <div class="blog-content-social-share m-t-40">
-                        <div class="blog-content-social-share-segment"><a href="https://twitter.com/share?url={{ social_url }}&text={{ blogpost.title }} - Bicepper.com" target="_blank" rel="nofollow" class="blog-content-social-share-segment-link"><img class="blog-content-social-share-icon" src="{% static "img/social-twitter-120.png" %}" alt="icon-twitter"><span class="blog-content-social-share-text">Tweet</span></a></div>
-                        <div class="blog-content-social-share-segment"><a href="https://www.facebook.com/sharer/sharer.php?u={{ social_url }}" target="_blank" rel="nofollow" class="blog-content-social-share-segment-link"><img class="blog-content-social-share-icon" src="{% static "img/social-facebook-120.png" %}" alt="icon-facebook"><span class="blog-content-social-share-text">Like</span></a></div>
-                        <div class="blog-content-social-share-segment"><a href="https://www.linkedin.com/shareArticle?mini=true&url={{ social_url }}&title={{ blogpost.title }}" target="_blank" rel="nofollow" class="blog-content-social-share-segment-link"><img class="blog-content-social-share-icon" src="{% static "img/social-linkedin-120.png" %}" alt="icon-linkedin"><span class="blog-content-social-share-text">Share</span></a></div>
-                        <div class="blog-content-social-share-segment"><a href="https://social-plugins.line.me/lineit/share?url={{ social_url }}" target="_blank" rel="nofollow" class="blog-content-social-share-segment-link"><img class="blog-content-social-share-icon" src="{% static "img/social-line-120.png" %}" alt="icon-line"><span class="blog-content-social-share-text">Share</span></a></div>
+                    <div class="blog-content-share-title m-t-60">SHARE</div>
+
+                    <div class="blog-content-social-share">
+                        <a href="https://twitter.com/share?url={{ social_url }}&text={{ blogpost.title }} - Bicepper.com" target="_blank" rel="nofollow" class="blog-content-social-share-segment-link">
+                            <i class="fab fa-twitter"></i>
+                            <span class="social-text">Twitter</span>
+                        </a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ social_url }}" target="_blank" rel="nofollow" class="blog-content-social-share-segment-link">
+                            <i class="fab fa-facebook-f"></i>
+                            <span class="social-text">Facebook</span>
+                        </a>
+                        <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ social_url }}&title={{ blogpost.title }}" target="_blank" rel="nofollow" class="blog-content-social-share-segment-link">
+                            <i class="fab fa-linkedin-in"></i>
+                            <span class="social-text">Linkedin</span>
+                        </a>
+                        <a href="https://social-plugins.line.me/lineit/share?url={{ social_url }}" target="_blank" rel="nofollow" class="blog-content-social-share-segment-link">
+                            <i class="fab fa-line"></i>
+                            <span class="social-text">Line</span>
+                        </a>
+                        <a href="https://b.hatena.ne.jp/add?mode=confirm&url={{ social_url }}&title={{ blogpost.title }}" target="_blank" rel="nofollow" class="blog-content-social-share-segment-link">
+                            <i class="fab fa-hatena"></i>
+                            <span class="social-text">Hatena</span>
+                        </a>
                     </div>
 
                     <div class="blog-content-section">

@@ -545,7 +545,7 @@ body {
     justify-content: flex-start;
     padding: 12px;
     text-align: left;
-    background: #4054B2;
+    background: #667eea;
     color: #fff;
     font-size: 16px;
 }
@@ -1035,6 +1035,8 @@ body {
     font-size: 1.2rem;
     align-items: center;
     justify-content: center;
+    margin-bottom:14px;
+    color:#667eea;
 }
 
 .blog-content-share-title:before {
@@ -1043,6 +1045,7 @@ body {
     border-top: 1px solid;
     display: inline;
     flex-grow: 1;
+    color:#667eea;
 }
 
 .blog-content-share-title:after {
@@ -1051,6 +1054,7 @@ body {
     border-top: 1px solid;
     display: inline;
     flex-grow: 1;
+    color:#667eea;
 }
 
 .alert-old-post {
@@ -1065,7 +1069,7 @@ body {
 .blog-content-image {
     width: 100%;
     height: auto;
-    margin-bottom: 10px;
+    margin-bottom: 16px;
 }
 
 .blog-content-title {
@@ -1086,18 +1090,23 @@ body {
 
 /**********************ブログ詳細のShareボタン************************/
 
+.fa-hatena:before {
+    content: "B!";
+    font-family: Verdana;
+    font-weight: bold
+}
+
 .blog-content-social-share {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 10px;
 }
 
 .blog-content-social-share-segment-link {
-    width:22%;
+    width:18%;
     min-width: 110px;
     background-color: #fff;
-    padding: 1rem 2rem;
+    padding: 1rem 1rem;
     text-decoration: none;
     color: #959595;
     display: flex;
@@ -1133,6 +1142,13 @@ body {
     transition: all .3s ease-in-out;
 }
 
+.blog-content-social-share-segment-link .fa-hatena {
+    color: #00A4DE;
+    font-size: 20px;
+    padding-right: 10px;
+    transition: all .3s ease-in-out;
+}
+
 .blog-content-social-share-segment-link .social-text {
     font-family: "Roboto", sans-serif;
     align-self: center;
@@ -1140,6 +1156,7 @@ body {
     transform: translateX(0px);
     transition: all .1s ease-in-out;
     opacity: 1;
+    font-size:0.8rem;
 }
 
 .blog-content-social-share-segment-link:hover:nth-child(1) {
@@ -1160,6 +1177,11 @@ body {
 .blog-content-social-share-segment-link:hover:nth-child(4) {
     border:1px solid #6FC45B;
     background: linear-gradient(to right, #6FC45B 0%, #6FC45B 100%);
+}
+
+.blog-content-social-share-segment-link:hover:nth-child(5) {
+    border:1px solid #00A4DE;
+    background: linear-gradient(to right, #00A4DE 0%, #00A4DE 100%);
 }
 
 .blog-content-social-share-segment-link:hover .fa-twitter {
@@ -1184,6 +1206,13 @@ body {
 }
 
 .blog-content-social-share-segment-link:hover .fa-line {
+    -webkit-transform: translateX(35px);
+    transform: translateX(35px);
+    padding-right: 0;
+    color: #FFF;
+}
+
+.blog-content-social-share-segment-link:hover .fa-hatena {
     -webkit-transform: translateX(35px);
     transform: translateX(35px);
     padding-right: 0;
@@ -1221,18 +1250,17 @@ body {
 
 .blog-content-index {
     margin: 40px 0 0 0;
+    border:1px solid #6495ed;
 }
 
 .blog-content-index-list {
-    list-style: none;
-    border: 1px solid rgba(0, 0, 0, .12);
     background: #f5f5f5;
 }
 
 .blog-content-index-title {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     height: 48px;
     padding: 8px 16px;
     font-size: 20px;
@@ -1252,22 +1280,14 @@ body {
     transition: color .3s, background-color .3s;
 }
 
-.blog-content-index-list-item:not(:last-child) {
-    border-bottom: 1px dashed rgba(0, 0, 0, .12);
+.blog-content-index-list-item:before{
+    content: "•";
+    padding: 0 0.6rem 0 0;
+    font-size: 1rem;
 }
 
-.blog-content-index-list-item-num {
-    display: flex;
-    align-items: center;
-    width: 20px;
-    height: 20px;
-    margin: 0 10px 0 0;
-    padding: 6px;
-    border-radius: 50%;
-    color: #616161;
-    font-size: 12px;
-    background: #fff;
-    border: 1px solid #AEADA9;
+.blog-content-main{
+    margin-top:60px;
 }
 
 .blog-content-section:first-child {
@@ -1294,6 +1314,10 @@ body {
     height: 100%;
     background: #4157AF;
     border-radius: 4px;
+}
+
+.blog-content-section-title:not(:first-child){
+    margin-top:60px;
 }
 
 .blog-content-section-paragraph {
