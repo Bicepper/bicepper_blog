@@ -16,17 +16,25 @@
 
                     <div class="blog-content-time"><i class="far fa-calendar-alt"></i>&nbsp;{{ blogpost.created_date|date:"Y-m-j" }}{% if blogpost.published_date is not None %}&nbsp;&nbsp;/&nbsp;&nbsp;<i class="fas fa-history"></i>&nbsp;{{ blogpost.published_date|date:"Y-m-j" }}{% endif %}</div>
 
+                    <div class="blog-content-share-title">SHARE</div>
+
                     <div class="blog-content-social-share">
-                        <div class="blog-content-social-share-segment">
-                            <a href="https://twitter.com/share?url={{ social_url }}&text={{ blogpost.title }} - Bicepper.com" target="_blank" rel="nofollow" class="blog-content-social-share-segment-link">
-{#                                <span class="blog-content-social-share-icon-twitter">#}
-                                    test
-{#                                </span>#}
-                            </a>
-                        </div>
-                        <div class="blog-content-social-share-segment"><a href="https://www.facebook.com/sharer/sharer.php?u={{ social_url }}" target="_blank" rel="nofollow" class="blog-content-social-share-segment-link"><img class="blog-content-social-share-icon" src="{% static "img/social-facebook-120.png" %}" alt="icon-facebook"></a></div>
-                        <div class="blog-content-social-share-segment"><a href="https://www.linkedin.com/shareArticle?mini=true&url={{ social_url }}&title={{ blogpost.title }}" target="_blank" rel="nofollow" class="blog-content-social-share-segment-link"><img class="blog-content-social-share-icon" src="{% static "img/social-linkedin-120.png" %}" alt="icon-linkedin"></a></div>
-                        <div class="blog-content-social-share-segment"><a href="https://social-plugins.line.me/lineit/share?url={{ social_url }}" target="_blank" rel="nofollow" class="blog-content-social-share-segment-link"><img class="blog-content-social-share-icon" src="{% static "img/social-line-120.png" %}" alt="icon-line"></a></div>
+                        <a href="https://twitter.com/share?url={{ social_url }}&text={{ blogpost.title }} - Bicepper.com" target="_blank" rel="nofollow" class="blog-content-social-share-segment-link">
+                            <i class="fab fa-twitter"></i>
+                            <span class="social-text">Twitter</span>
+                        </a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ social_url }}" target="_blank" rel="nofollow" class="blog-content-social-share-segment-link">
+                            <i class="fab fa-facebook-f"></i>
+                            <span class="social-text">Facebook</span>
+                        </a>
+                        <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ social_url }}&title={{ blogpost.title }}" target="_blank" rel="nofollow" class="blog-content-social-share-segment-link">
+                            <i class="fab fa-linkedin-in"></i>
+                            <span class="social-text">Linkedin</span>
+                        </a>
+                        <a href="https://social-plugins.line.me/lineit/share?url={{ social_url }}" target="_blank" rel="nofollow" class="blog-content-social-share-segment-link">
+                            <i class="fab fa-line"></i>
+                            <span class="social-text">Line</span>
+                        </a>
                     </div>
 
                     <div class="blog-content-intro">

@@ -1030,20 +1030,42 @@ body {
 }
 
 /**********************ブログ************************/
+.blog-content-share-title {
+    display: flex;
+    font-size: 1.2rem;
+    align-items: center;
+    justify-content: center;
+}
 
-.alert-old-post{
-    margin-bottom:10px;
-    padding:12px 8px;
-    font-size:0.8rem;
-    color:#9A4A3D;
-    background:#F2DEDF;
-    border-radius:3px;
+.blog-content-share-title:before {
+    margin-right: 0.5em;
+    content: "";
+    border-top: 1px solid;
+    display: inline;
+    flex-grow: 1;
+}
+
+.blog-content-share-title:after {
+    margin-left: 0.5em;
+    content: "";
+    border-top: 1px solid;
+    display: inline;
+    flex-grow: 1;
+}
+
+.alert-old-post {
+    margin-bottom: 10px;
+    padding: 12px 8px;
+    font-size: 0.8rem;
+    color: #9A4A3D;
+    background: #F2DEDF;
+    border-radius: 3px;
 }
 
 .blog-content-image {
     width: 100%;
     height: auto;
-    margin-bottom:10px;
+    margin-bottom: 10px;
 }
 
 .blog-content-title {
@@ -1062,79 +1084,116 @@ body {
     color: #666666;
 }
 
+/**********************ブログ詳細のShareボタン************************/
+
 .blog-content-social-share {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     margin-top: 10px;
 }
 
-.blog-content-social-share-segment {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 25%;
-    transition: 0.25s;
-}
-
-.blog-content-social-share-segment:nth-child(1) {
-    /*background: #1DADEB;*/
-}
-
-.blog-content-social-share-segment:nth-child(2) {
-    /*background: #3C5B96;*/
-}
-
-.blog-content-social-share-segment:nth-child(4) {
-    /*background: #6FC45B;*/
-}
-
-.blog-content-social-share-segment:nth-child(3) {
-    /*background: #1178B3;*/
-}
-
 .blog-content-social-share-segment-link {
-  flex: 1 1 auto;
-  margin: 10px;
-  padding: 20px;
-  border: 2px solid #f7f7f7;
-  text-align: center;
-  text-transform: uppercase;
-  position: relative;
-  overflow:hidden;
-  transition: .3s;
-}
-.blog-content-social-share-segment-link:after{
-    position: absolute;
-    transition: .3s;
-    content: '';
-    width: 0;
-    bottom: 0;
-    background: #f7f7f7;
-    height: 120%;
-    left: -10%;
-    transform: skewX(15deg);
-    z-index: -1;
-}
-.blog-content-social-share-segment-link .fa-twitter{
-
+    width:22%;
+    min-width: 110px;
+    background-color: #fff;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    color: #959595;
+    display: flex;
+    transition: all .2s ease-in-out;
+    border:1px solid rgba(44, 44, 44, 0.3);
 }
 
-.blog-content-social-share-segment-link:hover{
-    color: #5bcaff;
-}
-.blog-content-social-share-segment-link:hover:after{
-      left: -10%;
-      width: 120%;
+.blog-content-social-share-segment-link .fa-twitter {
+    color: #1DADEB;
+    font-size: 20px;
+    padding-right: 10px;
+    transition: all .3s ease-in-out;
 }
 
-
-
-.blog-content-social-share-segment-link:hover .blog-content-social-share-icon-twitter{
-    background:#1DADEB;
+.blog-content-social-share-segment-link .fa-facebook-f {
+    color: #3C5B96;
+    font-size: 20px;
+    padding-right: 10px;
+    transition: all .3s ease-in-out;
 }
-.blog-content-social-share-segment-link:hover .fa-twitter{
-    color:#fff;
+
+.blog-content-social-share-segment-link .fa-linkedin-in {
+    color: #1178B3;
+    font-size: 20px;
+    padding-right: 10px;
+    transition: all .3s ease-in-out;
+}
+
+.blog-content-social-share-segment-link .fa-line {
+    color: #6FC45B;
+    font-size: 20px;
+    padding-right: 10px;
+    transition: all .3s ease-in-out;
+}
+
+.blog-content-social-share-segment-link .social-text {
+    font-family: "Roboto", sans-serif;
+    align-self: center;
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
+    transition: all .1s ease-in-out;
+    opacity: 1;
+}
+
+.blog-content-social-share-segment-link:hover:nth-child(1) {
+    border:1px solid #1DADEB;
+    background: linear-gradient(to right, #1DADEB 0%, #1DADEB 100%);
+}
+
+.blog-content-social-share-segment-link:hover:nth-child(2) {
+    border:1px solid #3C5B96;
+    background: linear-gradient(to right, #3C5B96 0%, #3C5B96 100%);
+}
+
+.blog-content-social-share-segment-link:hover:nth-child(3) {
+    border:1px solid #1178B3;
+    background: linear-gradient(to right, #1178B3 0%, #1178B3 100%);
+}
+
+.blog-content-social-share-segment-link:hover:nth-child(4) {
+    border:1px solid #6FC45B;
+    background: linear-gradient(to right, #6FC45B 0%, #6FC45B 100%);
+}
+
+.blog-content-social-share-segment-link:hover .fa-twitter {
+    -webkit-transform: translateX(35px);
+    transform: translateX(35px);
+    padding-right: 0;
+    color: #FFF;
+}
+
+.blog-content-social-share-segment-link:hover .fa-facebook-f {
+    -webkit-transform: translateX(35px);
+    transform: translateX(35px);
+    padding-right: 0;
+    color: #FFF;
+}
+
+.blog-content-social-share-segment-link:hover .fa-linkedin-in {
+    -webkit-transform: translateX(35px);
+    transform: translateX(35px);
+    padding-right: 0;
+    color: #FFF;
+}
+
+.blog-content-social-share-segment-link:hover .fa-line {
+    -webkit-transform: translateX(35px);
+    transform: translateX(35px);
+    padding-right: 0;
+    color: #FFF;
+}
+
+.blog-content-social-share-segment-link:hover .social-text {
+    -webkit-transform: translateX(30px);
+    transform: translateX(30px);
+    opacity: 0;
 }
 
 .blog-content-social-share-icon {
@@ -1143,12 +1202,12 @@ body {
     font-size: 1.6rem;
 }
 
-.blog-content-social-share-icon-twitter{
-    display:flex;
+.blog-content-social-share-icon-twitter {
+    display: flex;
     align-items: center;
     justify-content: center;
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
 }
 
 .blog-content-social-share-text {
