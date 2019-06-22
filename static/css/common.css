@@ -1254,6 +1254,7 @@ body {
 }
 
 .blog-content-index-list {
+    padding:10px;
     background: #f5f5f5;
 }
 
@@ -1276,7 +1277,6 @@ body {
     text-decoration: none;
     min-height: 48px;
     color: #3e3e3e;
-    background: #f8f8ff;
     transition: color .3s, background-color .3s;
 }
 

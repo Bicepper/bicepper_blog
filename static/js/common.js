@@ -19,6 +19,8 @@ $(function(){
         }
     );
 
+    // *********** Scroll Button
+
     var scrollButton = $('.scroll-top');
     // scrollButton.hide();
     $(window).scroll(function () {
@@ -41,4 +43,5 @@ $(function(){
         var checkUrl = this.options[this.selectedIndex].value;
         document.location.href = (checkUrl === 'home' ? '/' : checkUrl);
     });
+
 });

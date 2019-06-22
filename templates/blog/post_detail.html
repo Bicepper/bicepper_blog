@@ -46,11 +46,7 @@
                     </div>
                     <div class="blog-content-index">
                         <div class="blog-content-index-title">Contents</div>
-                        <ul class="blog-content-index-list">
-                            <li class="blog-content-index-list-item">aaaadeadeaw</li>
-                            <li class="blog-content-index-list-item">feawoifjeiwoajfeiwoa</li>
-                            <li class="blog-content-index-list-item">fejkfewjalk</li>
-                        </ul>
+                        <ul class="blog-content-index-list"></ul>
                     </div>
 
                     <div class="blog-content-main">
@@ -121,16 +117,33 @@
 
 {% get_hit_count_js_variables for blogpost as hitcount %}
 <script type="text/javascript">
-jQuery(document).ready(function($) {
-  $.postCSRF("{{ hitcount.ajax_url }}", { hitcountPK : "{{ hitcount.pk }}" })
-    .done(function(data){
-      $('<i />').text(data.hit_counted).attr('id','hit-counted-value').appendTo('#hit-counted');
-      $('#hit-response').text(data.hit_message);
-  }).fail(function(data){
-      console.log('POST failed');
-      console.log(data);
-  });
-});
+    jQuery(document).ready(function($) {
+      $.postCSRF("{{ hitcount.ajax_url }}", { hitcountPK : "{{ hitcount.pk }}" })
+        .done(function(data){
+          $('<i />').text(data.hit_counted).attr('id','hit-counted-value').appendTo('#hit-counted');
+          $('#hit-response').text(data.hit_message);
+      }).fail(function(data){
+          console.log('POST failed');
+          console.log(data);
+      });
+    });
+
+    // *********** Create Index
+    var title_list = [];
+    $(".blog-content-main .blog-content-section-title").each(function(index){
+        $(this).attr('id', 'title_' + index);
+        title_list.push('<li class="blog-content-index-list-item"><a href="#title_' + index + '">' + $(this).html() + '</a></li>');
+    });
+    $('.blog-content-index-list').append(title_list);
+
+    // *********** Scroll Index
+      $(".blog-content-index-list-item a[href^=\"#\"]").click(function() {
+        var target = $(this.hash);
+        if (!target.length) return ;
+        $('html,body').animate({scrollTop: target.offset().top}, 500, 'swing');
+        return false;
+      });
+
 </script>
 
 
