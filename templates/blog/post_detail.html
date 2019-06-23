@@ -8,6 +8,7 @@
 {% block ogtitle %}{{ block.super }} | {{ blogpost.title }}{% endblock %}
 {% block summary %}{{ blogpost.description }}{% endblock %}
 {% block ogsitename %}{{ blogpost.title }} | {{ block.super }}{% endblock %}
+{% block ogimg %}{% get_media_prefix %}{{ blogpost.main_image|safe }}{% endblock %}
 
 {% block content %}
     <div class="left-column">

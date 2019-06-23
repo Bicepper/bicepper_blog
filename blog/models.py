@@ -107,3 +107,12 @@ class PrivacyPolicy(models.Model):
         return 'Privacy&Policy'
 
 
+class GoogleAnalytics(models.Model):
+    content = FroalaField(_('タグ'), options={'htmlRemoveTags': [], }, default='', blank=True, null=True)
+
+    class Meta:
+        verbose_name = _('GAタグ')
+        verbose_name_plural = _('GAタグ')
+
+    def __str__(self):
+        return 'GAタグ'

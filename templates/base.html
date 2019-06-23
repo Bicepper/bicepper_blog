@@ -19,13 +19,14 @@
     <meta property="og:title" content="{% block ogtitle %}Bicepper.com{% endblock %}" />
     <meta property="og:description" content="{% block summary %}プログラミング、筋トレが大好きなゴリラ系Webエンジニア、Bicepper（バイセッパー）のブログです。{% endblock %}" />
     <meta property="og:site_name" content="{% block ogsitename %}Bicepper.com{% endblock %}" />
-    <meta property="og:image" content="{% block img %}サムネイル画像URL{% endblock %}" />
+    <meta property="og:image" content="{% block ogimg %}{% static 'img/logo.png' %}{% endblock %}" />
     <meta property="fb:app_id" content="360427454829922" />
     <meta property="fb:admins" content="219904401360450" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@bicepper" />
 
-
+    <!--Favicon-->
+    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
 
     <!-- Reset CSS -->
     <link rel="stylesheet" href="{% static 'css/reset.css' %}" type="text/css">
@@ -39,6 +40,7 @@
     <script type="text/javascript" src="{% static 'js/common.js' %}"></script>
     <script src="//platform.linkedin.com/in.js" type="text/javascript">lang: ja</script>
     <script type="IN/Share" data-url="bicepper.com" data-counter="top"></script>
+    {{ gatag|safe }}
 </head>
 <body id="top" class="body-frame">
     {% include 'include/head/nav.html' %}
