@@ -1,21 +1,19 @@
 {% load static %}
     <div class="header header-theme_00">
-        <div class="logo">
+        <div class="header-logo">
             <h1><a href="https://bicepper.com" class="text-decoration-none color-white">Bicepper.com</a></h1>
         </div>
-        <ul class="nav">
-            <li class="nav-list"><a href="{% url 'blog:index' %}" class="nav-link color-white text-decoration-none"><span class="nav-title">HOME</span></a></li>
+        <ul class="header-nav">
+            <li class="header-nav-list"><a href="{% url 'blog:index' %}" class="header-nav-list-link color-white text-decoration-none"><span class="header-nav-list-title">HOME</span></a></li>
 
             {% for cat in categories %}
-                <li class="nav-list">
-                    <a href="{% url 'blog:category_list' cat.slug %}" class="nav-link color-white text-decoration-none"><span class="nav-title">{{ cat.title }}</span></a>
-{#                    {% if cat.all %}#}
-                        <ul class="nav-list-sub">
-                        {% for sub_item in cat.subcategory_set.all %}
-                            <li><a href="{% url 'blog:sub_category_list' cat.slug sub_item.slug %}" class="nav-link-sub-link text-decoration-none">{{ sub_item }}</a></li>
-                        {% endfor %}
-                        </ul>
-{#                    {% endif %}#}
+                <li class="header-nav-list">
+                    <a href="{% url 'blog:category_list' cat.slug %}" class="header-nav-list-link color-white text-decoration-none"><span class="header-nav-list-title">{{ cat.title }}</span></a>
+                    <ul class="header-nav-list-sub">
+                    {% for sub_item in cat.subcategory_set.all %}
+                        <li><a href="{% url 'blog:sub_category_list' cat.slug sub_item.slug %}" class="header-nav-list-sub-link text-decoration-none">{{ sub_item }}</a></li>
+                    {% endfor %}
+                    </ul>
                 </li>
             {% endfor %}
         </ul>
