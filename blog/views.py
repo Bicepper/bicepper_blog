@@ -21,6 +21,7 @@ from .models import SubCategory
 from .forms import BlogPostSearch
 from .forms import ContactForm
 from .models import Profile
+from .models import PrivacyPolicy
 
 
 class BaseListView(ListView):
@@ -191,4 +192,16 @@ class ContactResultView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['success'] = 'お問い合わせは正常に送信されました。'
         context['test_form'] = BlogPostSearch
+        return context
+
+
+class PrivacyPolicyView(TemplateView):
+    model = PrivacyPolicy
+    template_name = 'privacy.html'
+    form_class = BlogPostSearch
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        context['profile'] = PrivacyPolicy.objects.all()
+        context['test_form'] = self.form_class()
         return context

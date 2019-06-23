@@ -140,7 +140,7 @@
       $(".blog-content-index-list-item a[href^=\"#\"]").click(function() {
         var target = $(this.hash);
         if (!target.length) return ;
-        $('html,body').animate({scrollTop: target.offset().top}, 500, 'swing');
+        $('html,body').animate({scrollTop: target.offset().top}, 200, 'swing');
         return false;
       });
 

@@ -192,6 +192,14 @@ body {
     padding: 0 20px;
 }
 
+@media screen and (max-width: 599px) {
+    .header {
+        flex-direction:column;
+        height:auto;
+        padding:10px 0 0 0;
+    }
+}
+
 .logo {
     font-size: 24px;
     letter-spacing: 3px;
@@ -207,6 +215,27 @@ body {
     justify-content: flex-end;
     list-style: none;
     height: 100%;
+    z-index:10000;
+}
+
+@media screen and (max-width: 599px) {
+    .nav {
+        width:100%;
+        justify-content: space-around;
+        margin-top:20px;
+    }
+}
+
+@media screen and (min-width: 600px) and ( max-width: 1040px) {
+    .nav {
+
+    }
+}
+
+@media screen and (min-width: 1041px) {
+    .nav {
+
+    }
 }
 
 .nav-list {
@@ -215,8 +244,26 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    min-width: 110px;
     height: 100%;
+}
+
+@media screen and (max-width: 599px) {
+    .nav-list {
+        width:25%;
+        flex-direction: column;
+    }
+}
+
+@media screen and (min-width: 600px) and ( max-width: 1040px) {
+    .nav-list {
+        width: 90px;
+    }
+}
+
+@media screen and (min-width: 1041px) {
+    .nav-list {
+        width: 110px;
+    }
 }
 
 .nav-link {
@@ -226,10 +273,30 @@ body {
     justify-content: center;
     width: 100%;
     height: 100%;
-    padding: 0 18px;
     font-weight: bold;
-    font-size: 14px;
 }
+
+@media screen and (max-width: 599px) {
+    .nav-link {
+        flex-direction: column;
+        padding:14px 0;
+    }
+}
+
+@media screen and (min-width: 600px) and ( max-width: 1040px) {
+    .nav-link {
+        padding: 0 12px;
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (min-width: 1041px) {
+    .nav-link {
+        padding: 0 18px;
+        font-size: 0.8rem;
+    }
+}
+
 
 .nav-title {
     position: relative;
@@ -260,6 +327,12 @@ body {
     min-width: 100%;
     list-style: none;
     display: none;
+}
+
+@media screen and (max-width: 599px) {
+    .nav-list-sub {
+        top: 44px;
+    }
 }
 
 .nav-link-sub-link {
@@ -358,7 +431,9 @@ body {
 
 @media screen and (max-width: 599px) {
     .blog-list-link {
+        flex-direction:column;
         height: auto;
+        max-height: none;
     }
 }
 
@@ -380,6 +455,12 @@ body {
     overflow: hidden;
 }
 
+@media screen and (max-width: 599px) {
+    .blog-thumbnail {
+        width:100%;
+    }
+}
+
 .blog-thumbnail-image {
     position: relative;
     display: block;
@@ -392,6 +473,13 @@ body {
     -o-transition: -o-transform 0.2s linear;
     -ms-transition: -ms-transform 0.2s linear;
     transition: transform 0.2s linear;
+}
+
+@media screen and (max-width: 599px) {
+    .blog-thumbnail-image {
+        width:100%;
+        height:auto;
+    }
 }
 
 .blog-category-min {
@@ -412,6 +500,13 @@ body {
     justify-content: space-between;
     width: 60%;
     padding: 12px;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 599px) {
+    .blog-overview {
+        width: 100%;
+    }
 }
 
 .blog-title {
@@ -940,10 +1035,6 @@ body {
     width: 30%;
 }
 
-.footer-navigate-list {
-    line-height: 1.4rem;
-}
-
 .footer-logo {
     display: flex;
     align-items: center;
@@ -959,7 +1050,15 @@ body {
 }
 
 .footer-navigate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     list-style: none;
+}
+
+.footer-navigate-list {
+    margin: 0 10px;
+    line-height: 1.4rem;
 }
 
 .footer-navigate-list-link {
@@ -1035,8 +1134,8 @@ body {
     font-size: 1.2rem;
     align-items: center;
     justify-content: center;
-    margin-bottom:14px;
-    color:#667eea;
+    margin-bottom: 14px;
+    color: #667eea;
 }
 
 .blog-content-share-title:before {
@@ -1045,7 +1144,7 @@ body {
     border-top: 1px solid;
     display: inline;
     flex-grow: 1;
-    color:#667eea;
+    color: #667eea;
 }
 
 .blog-content-share-title:after {
@@ -1054,7 +1153,7 @@ body {
     border-top: 1px solid;
     display: inline;
     flex-grow: 1;
-    color:#667eea;
+    color: #667eea;
 }
 
 .alert-old-post {
@@ -1103,7 +1202,7 @@ body {
 }
 
 .blog-content-social-share-segment-link {
-    width:18%;
+    width: 18%;
     min-width: 110px;
     background-color: #fff;
     padding: 1rem 1rem;
@@ -1111,7 +1210,7 @@ body {
     color: #959595;
     display: flex;
     transition: all .2s ease-in-out;
-    border:1px solid rgba(44, 44, 44, 0.3);
+    border: 1px solid rgba(44, 44, 44, 0.3);
 }
 
 .blog-content-social-share-segment-link .fa-twitter {
@@ -1156,31 +1255,31 @@ body {
     transform: translateX(0px);
     transition: all .1s ease-in-out;
     opacity: 1;
-    font-size:0.8rem;
+    font-size: 0.8rem;
 }
 
 .blog-content-social-share-segment-link:hover:nth-child(1) {
-    border:1px solid #1DADEB;
+    border: 1px solid #1DADEB;
     background: linear-gradient(to right, #1DADEB 0%, #1DADEB 100%);
 }
 
 .blog-content-social-share-segment-link:hover:nth-child(2) {
-    border:1px solid #3C5B96;
+    border: 1px solid #3C5B96;
     background: linear-gradient(to right, #3C5B96 0%, #3C5B96 100%);
 }
 
 .blog-content-social-share-segment-link:hover:nth-child(3) {
-    border:1px solid #1178B3;
+    border: 1px solid #1178B3;
     background: linear-gradient(to right, #1178B3 0%, #1178B3 100%);
 }
 
 .blog-content-social-share-segment-link:hover:nth-child(4) {
-    border:1px solid #6FC45B;
+    border: 1px solid #6FC45B;
     background: linear-gradient(to right, #6FC45B 0%, #6FC45B 100%);
 }
 
 .blog-content-social-share-segment-link:hover:nth-child(5) {
-    border:1px solid #00A4DE;
+    border: 1px solid #00A4DE;
     background: linear-gradient(to right, #00A4DE 0%, #00A4DE 100%);
 }
 
@@ -1250,11 +1349,11 @@ body {
 
 .blog-content-index {
     margin: 40px 0 0 0;
-    border:1px solid #6495ed;
+    border: 1px solid #6495ed;
 }
 
 .blog-content-index-list {
-    padding:10px;
+    padding: 10px;
     background: #f5f5f5;
 }
 
@@ -1280,14 +1379,14 @@ body {
     transition: color .3s, background-color .3s;
 }
 
-.blog-content-index-list-item:before{
+.blog-content-index-list-item:before {
     content: "•";
     padding: 0 0.6rem 0 0;
     font-size: 1rem;
 }
 
-.blog-content-main{
-    margin-top:60px;
+.blog-content-main {
+    margin-top: 60px;
 }
 
 .blog-content-section:first-child {
@@ -1316,8 +1415,8 @@ body {
     border-radius: 4px;
 }
 
-.blog-content-section-title:not(:first-child){
-    margin-top:60px;
+.blog-content-section-title:not(:first-child) {
+    margin-top: 60px;
 }
 
 .blog-content-section-paragraph {

@@ -22,6 +22,7 @@ from filebrowser.sites import site
 from blog .views import (
     ContactView,
     ContactResultView,
+    PrivacyPolicyView,
 )
 
 urlpatterns = [
@@ -33,6 +34,7 @@ urlpatterns = [
     path('hitcount/', include('hitcount.urls', namespace='hitcount')),
     path('contact', ContactView.as_view(), name='contact'),
     path('contact/result', ContactResultView.as_view(), name='contact_result'),
+    path('privacy', PrivacyPolicyView.as_view(), name='privacypolicy'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
