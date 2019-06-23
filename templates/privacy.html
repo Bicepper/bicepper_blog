@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block title %}{{ block.super }} | Privacy & Policy{% endblock %}
+{% block description %}Bicepper.comのPrivacy & Policyです。{% endblock %}
+{% block ogtitle %}{{ block.super }} | Privacy & Policy{% endblock %}
+{% block summary %}Bicepper.comのPrivacy & Policyです。{% endblock %}
+{% block ogsitename %}Privacy & Policy | {{ block.super }}{% endblock %}
+
 {% block content %}
     <div class="left-column">
         <article class="content-overwrap">

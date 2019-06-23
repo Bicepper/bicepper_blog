@@ -3,6 +3,12 @@
 {% load blog_tag %}
 {% load hitcount_tags %}
 
+{% block title %}{{ block.super }} | {{ blogpost.title }}{% endblock %}
+{% block description %}{{ blogpost.description }}{% endblock %}
+{% block ogtitle %}{{ block.super }} | {{ blogpost.title }}{% endblock %}
+{% block summary %}{{ blogpost.description }}{% endblock %}
+{% block ogsitename %}{{ blogpost.title }} | {{ block.super }}{% endblock %}
+
 {% block content %}
     <div class="left-column">
             <article class="content-overwrap">

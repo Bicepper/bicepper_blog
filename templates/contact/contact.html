@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block title %}{{ block.super }} | Contact{% endblock %}
+{% block description %}Bicepper.comの問い合わせフォームです。{% endblock %}
+{% block ogtitle %}{{ block.super }} | Contact{% endblock %}
+{% block summary %}Bicepper.comの問い合わせフォームです。{% endblock %}
+{% block ogsitename %}Contact | {{ block.super }}{% endblock %}
+
 {% block content %}
     <div class="left-column">
         <article class="content-overwrap">

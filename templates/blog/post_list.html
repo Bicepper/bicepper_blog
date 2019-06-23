@@ -2,6 +2,12 @@
 {% load static %}
 {% load blog_tag %}
 
+{% block title %}{{ block.super }} | BlogList{% endblock %}
+{% block description %}Bicepper.comのブログ一覧ページです。{% endblock %}
+{% block ogtitle %}{{ block.super }} | BlogList{% endblock %}
+{% block summary %}Bicepper.comのブログ一覧ページです。{% endblock %}
+{% block ogsitename %}BlogList | {{ block.super }}{% endblock %}
+
 {% block content %}
     <div class="left-column">
         {% if search_text != None %}

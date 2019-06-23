@@ -6,19 +6,26 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" itemprop="description" content="筋トレが大好きなゴリラ系Webエンジニア、Bicepper（バイセッパー）のブログです。" >
+    <meta name="format-detection" content="telephone=no">
+    <!--SEO-->
+    <title>{% block title %}Bicepper.com{% endblock %}</title>
+    <meta name="keywords" content="">
+    <meta name="author" content="Bicepper(バイセッパー)">
+    <meta name="description" itemprop="description" content="{% block description %}プログラミング、筋トレが大好きなゴリラ系Webエンジニア、Bicepper（バイセッパー）のブログです。{% endblock %}" >
+    <link rel="canonical" href="https://bicepper.com">
     <!--OGP-->
-    <meta property="og:url" content="ページのURL。絶対パス" />
-    <meta property="og:type" content="ページの種類。topはwebsite、それ以外はarticle" />
-    <meta property="og:title" content="ページのタイトル。20文字以内" />
-    <meta property="og:description" content="ページのディスクリプション80~90文字以内" />
-    <meta property="og:site_name" content="サイト名" />
-    <meta property="og:image" content="サムネイル画像のURL" />
+    <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+    <meta property="og:type" content="{% if request.path == '/' %}website{% else %}article{% endif %}" />
+    <meta property="og:title" content="{% block ogtitle %}Bicepper.com{% endblock %}" />
+    <meta property="og:description" content="{% block summary %}プログラミング、筋トレが大好きなゴリラ系Webエンジニア、Bicepper（バイセッパー）のブログです。{% endblock %}" />
+    <meta property="og:site_name" content="{% block ogsitename %}Bicepper.com{% endblock %}" />
+    <meta property="og:image" content="{% block img %}サムネイル画像URL{% endblock %}" />
     <meta property="fb:app_id" content="360427454829922" />
     <meta property="fb:admins" content="219904401360450" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@bicepper" />
-    <title>Bicepper.com</title>
+
+
 
     <!-- Reset CSS -->
     <link rel="stylesheet" href="{% static 'css/reset.css' %}" type="text/css">

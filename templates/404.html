@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block title %}{{ block.super }} | 404{% endblock %}
+{% block description %}{{ block.super }}{% endblock %}
+{% block ogtitle %}{{ block.super }} | 404{% endblock %}
+{% block summary %}{{ block.super }}{% endblock %}
+{% block ogsitename %}404 | {{ block.super }}{% endblock %}
+
 {% block content %}
     <div class="left-column">
         <div class="page-notfound">
