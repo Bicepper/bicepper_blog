@@ -49,6 +49,7 @@ class BlogPost(models.Model, HitCountMixin):
     created_date = models.DateTimeField(_('作成日'), default=timezone.now, blank=False)
     published_date = models.DateTimeField(_('更新日'), blank=True, null=True)
     is_public = models.BooleanField(_('公開設定'), default=True, help_text='非公開にする場合はチェックを入れる')
+    is_author = models.BooleanField(_('管理者限定表示'), default=True, help_text='管理者のみ閲覧することができます。公開前のプレビューとして使用します。')
     hit_count_generic = GenericRelation(
         HitCount, object_id_field='object_pk',
         related_query_name='hit_count_generic_relation')
@@ -108,7 +109,7 @@ class PrivacyPolicy(models.Model):
 
 
 class GoogleAnalytics(models.Model):
-    content = FroalaField(_('タグ'), options={'htmlRemoveTags': [], }, default='', blank=True, null=True)
+    content = FroalaField(_('タグ'), options={'htmlRemoveTags': [], }, default='<script></script>', blank=True, null=True)
 
     class Meta:
         verbose_name = _('GAタグ')

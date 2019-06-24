@@ -14,6 +14,7 @@ def common(request):
     ranking = BlogPost.objects.all().order_by('hit_count_generic')[:3]
     archive = BlogPost.objects.order_by('created_date')
     gatag = GoogleAnalytics.objects.all().values('content')[0]['content']
+    print('gatagの中身:{}'.format(gatag))
     context = {
         'categories': category,
         'sub_categories': subcategory,

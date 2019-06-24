@@ -443,13 +443,43 @@ html{
     margin: 10px auto 0 auto;
 }
 .author-name-english {
-    font-size: 20px;
+    font-size:1.2rem;
     font-weight: 700;
 }
 .author-intro {
     margin: 10px auto 0 auto;
-    font-size: 13px;
+    font-size:0.9rem;
     line-height: 1.5;
+}
+.author-detail {
+    line-height: 1.5;
+}
+.author-detail-link{
+    font-size:0.9rem;
+}
+.author-social{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:10px;
+}
+.author-social-list{
+    list-style: none;
+}
+.author-social-list-link{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width:46px;
+    height:46px;
+    border-radius:50%;
+    text-decoration: none;
+    color:#fff;
+    background:#1DADEB;
+    box-shadow: 0 1px 5px rgba(0,0,0,.2), 0 2px 2px rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.12);
+}
+.author-social-list-link:hover{
+    opacity: 0.8;
 }
 .blogrank-list {
     list-style: none;

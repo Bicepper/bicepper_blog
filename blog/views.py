@@ -34,7 +34,7 @@ class BaseListView(ListView):
     def get_queryset(self):
         search_query = self.request.GET.get('search')
         self.search_text = search_query
-        queryset = BlogPost.objects.filter(is_public=True, created_date__lt=timezone.localtime()) \
+        queryset = BlogPost.objects.filter(is_public=True, is_author=False, created_date__lt=timezone.localtime()) \
             .order_by('-created_date').select_related('category')
 
         if search_query is not None:
@@ -111,6 +111,8 @@ class PostDetailView(DetailView):
     def get_object(self, queryset=None):
         post = super().get_object()
         if post.is_public:
+            return post
+        elif post.is_public is False and self.request.user.is_authenticated:
             return post
         else:
             raise Http404
