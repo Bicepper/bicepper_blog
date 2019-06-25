@@ -157,6 +157,86 @@ html{
     margin-top: 100px !important;
 }
 
+.p-t-5 {
+    padding-top: 5px !important;
+}
+
+.p-t-10 {
+    padding-top: 10px !important;
+}
+
+.p-t-15 {
+    padding-top: 15px !important;
+}
+
+.p-t-20 {
+    padding-top: 20px !important;
+}
+
+.p-t-25 {
+    padding-top: 25px !important;
+}
+
+.p-t-30 {
+    padding-top: 30px !important;
+}
+
+.p-t-35 {
+    padding-top: 35px !important;
+}
+
+.p-t-40 {
+    padding-top: 40px !important;
+}
+
+.p-t-45 {
+    padding-top: 45px !important;
+}
+
+.p-t-50 {
+    padding-top: 50px !important;
+}
+
+.p-t-55 {
+    padding-top: 55px !important;
+}
+
+.p-t-60 {
+    padding-top: 60px !important;
+}
+
+.p-t-65 {
+    padding-top: 65px !important;
+}
+
+.p-t-70 {
+    padding-top: 70px !important;
+}
+
+.p-t-75 {
+    padding-top: 75px !important;
+}
+
+.p-t-80 {
+    padding-top: 80px !important;
+}
+
+.p-t-85 {
+    padding-top: 85px !important;
+}
+
+.p-t-90 {
+    padding-top: 90px !important;
+}
+
+.p-t-95 {
+    padding-top: 95px !important;
+}
+
+.p-t-100 {
+    padding-top: 100px !important;
+}
+
 /**********************Scroll Top************************/
 .scroll-top {
     position: fixed;
@@ -194,6 +274,7 @@ html{
 
 /********************** Header ************************/
 .header {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -201,6 +282,11 @@ html{
     height: 70px;
     min-height: 70px;
     padding: 0 20px;
+    z-index:10000;
+}
+.header_is_fixed{
+    position:fixed;
+    top:0;
 }
 .header-logo {
     font-size: 24px;

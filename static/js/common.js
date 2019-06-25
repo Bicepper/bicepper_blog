@@ -44,4 +44,16 @@ $(function(){
         document.location.href = (checkUrl === 'home' ? '/' : checkUrl);
     });
 
+
+    // *********** Head fixed
+    var navPos = $('.header').offset().top;
+    $(window).on('load scroll', function(){
+        if($(this).scrollTop() > navPos){
+            $('.header').addClass('header_is_fixed');
+            $('.body-frame').addClass('p-t-70');
+        }else{
+            $('.header').removeClass('header_is_fixed');
+            $('.body-frame').removeClass('p-t-70');
+        }
+    });
 });
