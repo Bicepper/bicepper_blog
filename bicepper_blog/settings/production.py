@@ -12,8 +12,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'bicepper_blog',
         'USER': 'root',
-        # 'PASSWORD': '65t00Uof',
-        'PASSWORD': '65t00Uof',
+        'PASSWORD': '6~+ZxQU_.)4q',
         'HOST': '',
         'PORT': '',
         'OPTIONS': {
