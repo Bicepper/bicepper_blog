@@ -344,7 +344,9 @@ html{
     position: absolute;
     top: 70px;
     min-width: 100%;
+    background: #545454;
     list-style: none;
+    box-shadow:0 3px 5px rgba(0,0,0,.22);
     display: none;
 }
 .header-nav-list-sub-link {
@@ -356,8 +358,8 @@ html{
     font-weight: bold;
     font-size: 14px;
     color: #fff;
-    background: #4054B2;
-    border-top: 1px solid #fff;
+    background: #545454;
+    border-top: solid 1px #7b7b7b;
 }
 .header-nav-list-sub-link:hover {
     background: #6273BE;
