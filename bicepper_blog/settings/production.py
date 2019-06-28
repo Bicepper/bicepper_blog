@@ -4,7 +4,7 @@ from .base import *
 DEBUG = False
 
 if not DEBUG:
-    ALLOWED_HOSTS = ["bicepper.com"]
+    ALLOWED_HOSTS = ['bicepper.com', ]
 
 
 DATABASES = {
