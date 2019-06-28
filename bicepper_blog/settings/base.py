@@ -25,14 +25,6 @@ PROJECT_NAME = 'bicepper_blog'
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'e2_^%3g@u(ut3os00($=wtri8_-_u_to_c05jd_8tj$9o1b^xc'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-# if socket.gethostname().endswith(".local"):
-#     DEBUG = True
-#     ALLOWED_HOSTS = ['127.0.0.1', 'localhost', ]
-# else:
-#     DEBUG = False
-#     ALLOWED_HOSTS = ["bicepper.com", ]
-
 
 # Gmail で送信する場合
 EMAIL_HOST = 'smtp.gmail.com'
