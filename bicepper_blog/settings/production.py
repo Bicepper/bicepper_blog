@@ -41,3 +41,9 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_FILE_STORAGE = 'bicepper_blog.backends.MediaStorage'
+
+# IP制限で許可する
+ALLOWED_IP_BLOCKS = ['121.3.45.231', '39.110.247.89', '122.208.93.91', '122.208.93.92']
+
+# IP制限でブロックする
+DENY_IP_BLOCKS = []
