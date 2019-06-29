@@ -132,14 +132,6 @@ GRAPPELLI_INDEX_DASHBOARD = 'dashboard.CustomIndexDashboard'
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'compressor.finders.CompressorFinder',
-)
-
-COMPRESS_ENABLED = True
-
 # recaptcha info
 GOOGLE_RECAPTCHA_SITE_KEY = '6LexaakUAAAAABFG1uWnMItmJ99da6TIX7G79Ftg'
 GOOGLE_RECAPTCHA_SECRET_KEY = '6LexaakUAAAAACa6WlvD98VLFFN4N_2geFTUvyf1'
