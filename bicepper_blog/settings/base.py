@@ -53,6 +53,7 @@ THIRD_PARTY_APPS = [
     'froala_editor',
     'hitcount',
     'storages',
+    'compressor',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS
@@ -131,6 +132,13 @@ GRAPPELLI_INDEX_DASHBOARD = 'dashboard.CustomIndexDashboard'
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+)
+
+COMPRESS_ENABLED = True
 
 # recaptcha info
 GOOGLE_RECAPTCHA_SITE_KEY = '6LexaakUAAAAABFG1uWnMItmJ99da6TIX7G79Ftg'

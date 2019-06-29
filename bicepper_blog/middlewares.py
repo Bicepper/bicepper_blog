@@ -7,7 +7,6 @@ from bicepper_blog.settings import production
 class IpRestrictMiddleware(object):
     def __init__(self, get_response):
         self.get_response = get_response
-        print('test')
 
     def __call__(self, request):
         ip = request.META['REMOTE_ADDR']
@@ -22,7 +21,7 @@ class IpRestrictMiddleware(object):
         return response
 
     def process_request(self, request):
-        print("リクエストの処理")
+        pass
 
     def process_response(self, request, response):
-        print("レスポンスの処理")
+        pass
