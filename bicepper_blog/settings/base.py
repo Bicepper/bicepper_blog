@@ -53,7 +53,6 @@ THIRD_PARTY_APPS = [
     'froala_editor',
     'hitcount',
     'storages',
-    'compressor',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS

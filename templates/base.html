@@ -1,5 +1,4 @@
 {% load static %}
-{% load compress %}
 
 <html lang="ja">
 <head prefix="og:http://ogp.me/ns# fb:http://ogp.me/ns/fb# website:http://ogp.me/ns/website#">
@@ -30,23 +29,19 @@
     <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
 
     <!-- Reset CSS -->
-    {% compress css %}
     <link rel="stylesheet" href="{% static 'css/reset.css' %}" type="text/css">
     <!-- Common CSS -->
     <link rel="stylesheet" href="{% static 'css/common.css' %}" type="text/css">
     <!-- Fancy CSS -->
     <link rel="stylesheet" href="{% static 'css/jquery.fancybox.min.css' %}" type="text/css">
-    {% endcompress %}
 
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
     <!-- JS -->
-    {% compress js %}
     <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/common.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/jquery.fancybox.min.js' %}"></script>
-    {% endcompress %}
     <script src="//platform.linkedin.com/in.js" type="text/javascript">lang: ja</script>
     <script type="IN/Share" data-url="bicepper.com" data-counter="top"></script>
     {{ gatag|safe }}

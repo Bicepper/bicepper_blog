@@ -42,17 +42,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_FILE_STORAGE = 'bicepper_blog.backends.MediaStorage'
 
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'compressor.finders.CompressorFinder',
-)
-
-COMPRESS_ROOT = os.path.join(BASE_DIR, 'compressfiles')
-
-COMPRESS_ENABLED = True
-
-
 # IP制限で許可する
 ALLOWED_IP_BLOCKS = ['127.0.0.1', ]
 
