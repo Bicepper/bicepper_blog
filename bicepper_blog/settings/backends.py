@@ -6,7 +6,7 @@ class S3Storage(S3BotoStorageMixin, S3Boto3Storage):
     pass
 
 
-class MediaStorage(S3Boto3Storage):
+class PublicMediaStorage(S3Boto3Storage):
     location = 'media'
     file_overwrite = False
 
