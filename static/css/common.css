@@ -388,6 +388,9 @@ html{
 .content-innerwrap {
     padding: 20px 40px;
 }
+.content-innerwrap-equal{
+    padding: 40px;
+}
 .blog-list {
     width: 100%;
     margin: 0 0 20px 0;
@@ -1407,6 +1410,9 @@ html{
         margin:20px auto 0 auto;
     }
     .content-innerwrap {
+        padding: 20px 20px;
+    }
+    .content-innerwrap-equal{
         padding: 20px 20px;
     }
     .left-column {
