@@ -1,7 +1,7 @@
 from django import forms
 from django.conf import settings
 from django.core.mail import BadHeaderError, send_mail
-from .models import BlogPost
+from django.template.loader import render_to_string
 from django.http import HttpResponse
 
 
@@ -57,15 +57,25 @@ class ContactForm(forms.Form):
         required=True
     )
 
-    def send_email(self):
+    def send_email(self, request):
         subject = self.cleaned_data['subject']
         message = self.cleaned_data['message']
         name = self.cleaned_data['name']
         email = self.cleaned_data['email']
+        context = {
+            'message': message,
+            'name': name,
+            'email': email,
+            'user_ip': request.META['REMOTE_ADDR'],
+            'user_agent': request.META['HTTP_USER_AGENT'],
+            'http_host': request.META['HTTP_HOST'],
+            'remote_host': request.META['REMOTE_HOST'],
+        }
+        message_format = render_to_string('mail/mail.txt', context, request)
         from_email = '{name} <{email}>'.format(name=name, email=email)
         recipient_list = [settings.EMAIL_HOST_USER]
         try:
-            send_mail(subject, message, from_email, recipient_list)
+            send_mail(subject, message_format, from_email, recipient_list)
         except BadHeaderError:
             return HttpResponse("無効なヘッダーが検出されました")
 

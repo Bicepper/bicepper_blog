@@ -163,7 +163,7 @@ class ContactView(FormView):
         return context
 
     def form_valid(self, form):
-        form.send_email()
+        form.send_email(self.request)
 
         # recaptcha取得
         recaptcha_response = self.request.POST.get('g-recaptcha-response')
@@ -192,7 +192,7 @@ class ContactResultView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['success'] = 'お問い合わせは正常に送信されました。'
+        context['success'] = 'お問い合わせいただきありがとうございます。<br>正常に送信されました。<br>なお、全ての問い合わせに返信はしておりませんことをご了承ください。'
         context['test_form'] = BlogPostSearch
         return context
 
