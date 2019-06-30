@@ -11,6 +11,8 @@
 {% block content %}
     <div class="left-column">
         <article class="content-overwrap">
+            <div class="profile_back"></div>
+            <img src="{% static 'img/photo2.jpg' %}" alt="" class="profile_back_photo">
             <div class="content-innerwrap">
                 {% for obj in profile %}
                     {{ obj.content|safe }}
