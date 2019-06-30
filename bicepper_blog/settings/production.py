@@ -1,9 +1,9 @@
 from .base import *
 
 
-DEBUG = False
+DEBUG = True
 
-if not DEBUG:
+if DEBUG:
     ALLOWED_HOSTS = ['bicepper.com', 'my-muscle-get-world.bicepper.com']
 
 
