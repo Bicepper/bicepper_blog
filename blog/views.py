@@ -207,3 +207,9 @@ class PrivacyPolicyView(TemplateView):
         context['profile'] = PrivacyPolicy.objects.all()
         context['test_form'] = self.form_class()
         return context
+
+
+def ip_check(request, *args, **kwargs):
+    ip = request.META['REMOTE_ADDR']
+    return ip
+
