@@ -69,7 +69,6 @@ class ContactForm(forms.Form):
             'user_ip': request.META['REMOTE_ADDR'],
             'user_agent': request.META['HTTP_USER_AGENT'],
             'http_host': request.META['HTTP_HOST'],
-            'remote_host': request.META['REMOTE_HOST'],
         }
         message_format = render_to_string('mail/mail.txt', context, request)
         from_email = '{name} <{email}>'.format(name=name, email=email)
