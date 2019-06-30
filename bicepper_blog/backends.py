@@ -3,4 +3,7 @@ from filebrowser.storage import StorageMixin
 
 
 class PublicMediaStorage(StorageMixin, S3Boto3Storage):
-    pass
+    location = 'media'
+    file_overwrite = False
+
+
