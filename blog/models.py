@@ -5,10 +5,8 @@ from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.contenttypes.fields import GenericRelation
 from uuid import uuid4
-from imagekit.models import ImageSpecField
-from imagekit.processors import ResizeToFill
+from ckeditor.fields import RichTextField
 from filebrowser.fields import FileBrowseField
-from froala_editor.fields import FroalaField
 from hitcount.models import HitCount
 from hitcount.models import HitCountMixin
 
@@ -45,7 +43,7 @@ class BlogPost(models.Model, HitCountMixin):
     category = models.ForeignKey('SubCategory', verbose_name='カテゴリ', default=3, on_delete=models.PROTECT)
     title = models.CharField(_('タイトル'), max_length=33, blank=False)
     description = models.TextField(_('記事概要'), max_length=108, default='', blank=False)
-    content = FroalaField(_('内容'), default='', blank=False, null=False)
+    content = RichTextField(_('内容'), default='', blank=False, null=False)
     created_date = models.DateTimeField(_('作成日'), default=timezone.now, blank=False)
     published_date = models.DateTimeField(_('更新日'), blank=True, null=True)
     is_public = models.BooleanField(_('公開設定'), default=False, help_text='公開にする場合はチェックを入れます。')
@@ -81,7 +79,7 @@ class Profile(models.Model):
     name = models.CharField(_('名前（表示名）'), blank=False, max_length=255)
     author_image = FileBrowseField("メイン画像", max_length=200, directory="media/uploads/profile/",
                                    extensions=[".jpg", ".png"], blank=False, null=True)
-    content = FroalaField(_('内容'), default='', blank=False, null=False)
+    content = RichTextField(_('内容'), default='', blank=False, null=False)
     created_date = models.DateTimeField(_('作成日'), default=timezone.now, blank=False)
     published_date = models.DateTimeField(_('更新日'), blank=True, null=True)
     is_public = models.BooleanField(_('公開設定'), default=True, help_text='非公開にする場合はチェックを入れる')
@@ -95,7 +93,7 @@ class Profile(models.Model):
 
 
 class PrivacyPolicy(models.Model):
-    content = FroalaField(_('内容'), default='', blank=False, null=False)
+    content = RichTextField(_('内容'), default='', blank=False, null=False)
     created_date = models.DateTimeField(_('作成日'), default=timezone.now, blank=False)
     published_date = models.DateTimeField(_('更新日'), blank=True, null=True)
     is_public = models.BooleanField(_('公開設定'), default=True, help_text='非公開にする場合はチェックを入れる')
@@ -109,7 +107,7 @@ class PrivacyPolicy(models.Model):
 
 
 class GoogleAnalytics(models.Model):
-    content = FroalaField(_('タグ'), options={'htmlRemoveTags': [], }, default='<script></script>', blank=True, null=True)
+    content = RichTextField(_('タグ'), default='<script></script>', blank=True, null=True)
 
     class Meta:
         verbose_name = _('GAタグ')

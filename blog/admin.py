@@ -6,6 +6,7 @@ from .models import Profile
 from .models import PrivacyPolicy
 from .models import GoogleAnalytics
 
+
 # Register your models here.
 admin.site.register(BlogPost)
 admin.site.register(ParentCategory)

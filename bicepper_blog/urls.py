@@ -28,7 +28,6 @@ from blog .views import (
 urlpatterns = [
     path('admin/filebrowser/', site.urls),
     path('grappelli/', include('grappelli.urls')),
-    path('froala_editor/', include('froala_editor.urls')),
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
     path('hitcount/', include('hitcount.urls', namespace='hitcount')),
