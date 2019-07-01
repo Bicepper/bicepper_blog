@@ -25,3 +25,4 @@ class IpRestrictMiddleware(object):
 
     def process_response(self, request, response):
         pass
+
