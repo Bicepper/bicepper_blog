@@ -34,3 +34,11 @@ ALLOWED_IP_BLOCKS = ['127.0.0.1', ]
 
 # IP制限でブロックする
 DENY_IP_BLOCKS = []
+
+# CKeditor
+CKEDITOR_CONFIGS = {
+  'default': {
+    'removePlugins': 'stylesheetparser',
+    'allowedContent': True,
+  },
+}

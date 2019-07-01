@@ -13,8 +13,7 @@ def common(request):
     subcategory = BlogPost.objects.select_related('category').select_related('category__parent').all().order_by('category')
     ranking = BlogPost.objects.all().order_by('hit_count_generic')[:3]
     archive = BlogPost.objects.order_by('created_date')
-    gatag = GoogleAnalytics.objects.all().values('content')[0]['content'].first() if GoogleAnalytics.objects.all() else ''
-    print('gatagの中身:{}'.format(gatag))
+    gatag = GoogleAnalytics.objects.all().values('content')[0]['content'] if GoogleAnalytics.objects.all() else ''
     context = {
         'categories': category,
         'sub_categories': subcategory,

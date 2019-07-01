@@ -89,11 +89,12 @@ class ArchiveList(MonthArchiveView):
 
     def get_year(self):
         year = super(ArchiveList, self).get_year()
-        print('年:{}'.format(year))
         return year
 
     def get_queryset(self):
         queryset = super().get_queryset()
+        queryset = queryset.filter(is_public=True, is_author=False, created_date__lt=timezone.localtime()) \
+            .order_by('-created_date')
         return queryset
 
     def get_context_data(self, *, object_list=None, **kwargs):
@@ -127,12 +128,12 @@ class PostDetailView(DetailView):
                                          resolve(self.request.path_info).kwargs['pk'])
 
         # 現在日時と投稿日の差を取得
-        now_time = datetime.datetime.now()
+        now_time = datetime.datetime.now().replace(microsecond=0)
         post_time = BlogPost.objects.filter(pk=self.kwargs['pk']).values('created_date')[0]['created_date'].replace(tzinfo=None)
 
         context['social_url'] = url
         context['test_form'] = self.form_class()
-        context['time_elapsed'] = int(str(now_time - post_time).split()[0])
+        context['time_elapsed'] = int(str(now_time - post_time).split()[0]) if len(str(now_time - post_time).split(",")) >= 2 else 0  # 差分0日だとエラーになるので
 
         return context
 
