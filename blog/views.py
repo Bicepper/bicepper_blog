@@ -89,11 +89,12 @@ class ArchiveList(MonthArchiveView):
 
     def get_year(self):
         year = super(ArchiveList, self).get_year()
-        print('年:{}'.format(year))
         return year
 
     def get_queryset(self):
         queryset = super().get_queryset()
+        queryset = queryset.filter(is_public=True, is_author=False, created_date__lt=timezone.localtime()) \
+            .order_by('-created_date')
         return queryset
 
     def get_context_data(self, *, object_list=None, **kwargs):
