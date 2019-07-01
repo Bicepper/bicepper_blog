@@ -61,7 +61,8 @@ class CategoryList(BaseListView):
     def get_queryset(self):
         category_name = self.kwargs['category']
         category = ParentCategory.objects.get(slug=category_name).slug
-        queryset = super().get_queryset().filter(category__parent__slug=category)
+        queryset = super().get_queryset().filter(is_public=True, is_author=False, created_date__lt=timezone.localtime(),
+                                                 category__parent__slug=category)
         return queryset
 
 
@@ -69,7 +70,8 @@ class SubCategoryList(BaseListView):
     def get_queryset(self):
         category_name = self.kwargs['category__slug']
         category = SubCategory.objects.get(slug=category_name)
-        queryset = super().get_queryset().filter(category=category)
+        queryset = super().get_queryset().filter(is_public=True, is_author=False, created_date__lt=timezone.localtime(),
+                                                 category=category)
         return queryset
 
 
