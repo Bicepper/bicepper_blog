@@ -127,13 +127,12 @@ class PostDetailView(DetailView):
                                          resolve(self.request.path_info).kwargs['pk'])
 
         # 現在日時と投稿日の差を取得
-        now_time = datetime.datetime.now()
+        now_time = datetime.datetime.now().replace(microsecond=0)
         post_time = BlogPost.objects.filter(pk=self.kwargs['pk']).values('created_date')[0]['created_date'].replace(tzinfo=None)
 
         context['social_url'] = url
         context['test_form'] = self.form_class()
-        print(int(str(now_time - post_time).split()[0]))
-        context['time_elapsed'] = int(float(str(now_time - post_time).split()[0]))
+        context['time_elapsed'] = int(str(now_time - post_time).split()[0])
 
         return context
 
