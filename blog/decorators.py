@@ -12,7 +12,9 @@ def blog_detail_admin_only(func):
         check_limit = BlogPost.objects.filter(pk=kwargs['pk']).values('is_public', 'is_author')
 
         if check_limit[0]['is_public'] is False and check_limit[0]['is_author'] is True:
-            if not request.user.is_authenticated:
+            if request.user.is_authenticated:
+                pass
+            else:
                 raise Http404
 
         return func(request, *args, **kwargs)
