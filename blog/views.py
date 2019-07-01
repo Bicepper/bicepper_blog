@@ -132,7 +132,8 @@ class PostDetailView(DetailView):
 
         context['social_url'] = url
         context['test_form'] = self.form_class()
-        context['time_elapsed'] = int(str(now_time - post_time).split()[0])
+        print(int(str(now_time - post_time).split()[0]))
+        context['time_elapsed'] = int(float(str(now_time - post_time).split()[0]))
 
         return context
 
