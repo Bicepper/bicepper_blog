@@ -132,11 +132,7 @@ class PostDetailView(DetailView):
 
         context['social_url'] = url
         context['test_form'] = self.form_class()
-        print('現在時間:{}'.format(now_time))
-        print('ポスト時間:{}'.format(post_time))
-        print('差分:{}'.format(now_time - post_time))
-        print(int(float(str(now_time - post_time).split()[0])))
-        context['time_elapsed'] = int(str(now_time - post_time).split()[0])
+        context['time_elapsed'] = int(str(now_time - post_time).split()[0]) if len(str(now_time - post_time).split(",")) >= 2 else 0  # 差分0日だとエラーになるので
 
         return context
 
