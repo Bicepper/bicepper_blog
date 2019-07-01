@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
+from bicepper_blog.settings import production
 from django.conf.urls.static import static
 from filebrowser.sites import site
 
@@ -36,4 +37,4 @@ urlpatterns = [
     path('privacy', PrivacyPolicyView.as_view(), name='privacypolicy'),
 ]
 
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(production.MEDIA_URL, document_root=production.MEDIA_ROOT)
