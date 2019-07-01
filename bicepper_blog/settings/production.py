@@ -27,7 +27,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'assets'),)
+STATICFILES_DIRS = ('/var/www/bicepper_blog_static',)
 
 # IP制限で許可する
 ALLOWED_IP_BLOCKS = ['127.0.0.1', ]
