@@ -964,6 +964,8 @@ html{
 .blog-content-adhoc-block{
     display:block;
     width:100%;
+    margin: 40px 0 0 0;
+    border: 1px solid #dcdcdc;
 }
 .blog-content-adhoc-image{
     width:100%;
@@ -1297,7 +1299,7 @@ html{
     padding: 10px;
     font-size: 30px;
     margin-bottom: 20px;
-    word-break: break-all;
+    wo: break-all;
     line-height: 1.5;
 }
 
