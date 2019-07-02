@@ -18,13 +18,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 PROJECT_ROOT = os.path.realpath(os.path.dirname(__file__))
 PROJECT_NAME = 'bicepper_blog'
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'e2_^%3g@u(ut3os00($=wtri8_-_u_to_c05jd_8tj$9o1b^xc'
-
 
 # Gmail で送信する場合
 EMAIL_HOST = 'smtp.gmail.com'
@@ -32,7 +30,6 @@ EMAIL_HOST_USER = 'muscleconsole@gmail.com'
 EMAIL_HOST_PASSWORD = 'lbspwtnzezdltdpm'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-
 
 # Application definition
 DJANGO_APPS = [
@@ -55,7 +52,6 @@ THIRD_PARTY_APPS = [
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -89,7 +85,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'bicepper_blog.wsgi.application'
 
-
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
@@ -108,7 +103,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
@@ -125,7 +119,6 @@ USE_TZ = True
 # dashboard
 GRAPPELLI_INDEX_DASHBOARD = 'dashboard.CustomIndexDashboard'
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
@@ -133,3 +126,24 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # recaptcha info
 GOOGLE_RECAPTCHA_SITE_KEY = '6LexaakUAAAAABFG1uWnMItmJ99da6TIX7G79Ftg'
 GOOGLE_RECAPTCHA_SECRET_KEY = '6LexaakUAAAAACa6WlvD98VLFFN4N_2geFTUvyf1'
+
+# CKeditor
+CKEDITOR_CONFIGS = {
+    'default': {  # デフォルトのエディタはこっち
+        'removePlugins': 'stylesheetparser',
+        'allowedContent': True,
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Link', 'Unlink', 'Image', 'CodeSnippet', 'Link', 'Unlink', 'Anchor', 'Smiley', 'SpecialChar',
+             'ShowBlocks', 'Source'],
+        ],
+        'extraPlugins': 'codesnippet',
+    },
+    'special': {  # エディタの機能を変更したものはこっち
+        'toolbar': 'Special',
+        'toolbar_Special': [
+            ['Bold'], ['CodeSnippet'],
+        ],
+        'extraPlugins': 'codesnippet',
+    }
+}
