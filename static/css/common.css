@@ -304,7 +304,7 @@ html{
     align-items: center;
     justify-content: flex-end;
     list-style: none;
-    height: 100%;
+    height: auto;
     z-index:10000;
 }
 .header-nav-list {
@@ -313,7 +313,7 @@ html{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 100%;
+    height: auto;
 }
 .header-nav-list-link {
     position: relative;
@@ -321,7 +321,7 @@ html{
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100%;
+    height: auto;
     font-weight: bold;
 }
 .header-nav-list-title {
@@ -1396,6 +1396,7 @@ html{
         padding:10px 0 0 0;
     }
     .header-nav {
+        position:relative;
         width:100%;
         justify-content: space-around;
         margin-top:20px;
