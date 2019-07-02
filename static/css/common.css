@@ -961,6 +961,10 @@ html{
     font-size: 0.8rem;
     color: #666666;
 }
+.blog-content-adhoc-block{
+    display:block;
+    width:100%;
+}
 .blog-content-adhoc-image{
     width:100%;
     text-align:center;
