@@ -137,7 +137,7 @@ CKEDITOR_CONFIGS = {
             ['Bold', 'Link', 'Unlink', 'Image', 'CodeSnippet', 'Link', 'Unlink', 'Anchor', 'Smiley', 'SpecialChar',
              'ShowBlocks', 'Source'],
         ],
-        'extraPlugins': 'codesnippet',
+        'extraPlugins': 'codesnippet,wordcount,notification',
     },
     'special': {  # エディタの機能を変更したものはこっち
         'toolbar': 'Special',
