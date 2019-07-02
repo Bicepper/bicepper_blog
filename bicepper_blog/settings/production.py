@@ -42,5 +42,9 @@ CKEDITOR_CONFIGS = {
   'default': {
     'removePlugins': 'stylesheetparser',
     'allowedContent': True,
+    'extraPlugins': ','.join(
+        [
+            'codesnippet',
+        ]),
   },
 }
