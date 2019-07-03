@@ -321,7 +321,7 @@ html{
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: auto;
+    height: 70px;
     font-weight: bold;
 }
 .header-nav-list-title {
@@ -1407,6 +1407,7 @@ html{
     }
     .header-nav-list-link {
         flex-direction: column;
+        height:42px;
         padding:14px 0;
     }
     .header-nav-list-sub {
