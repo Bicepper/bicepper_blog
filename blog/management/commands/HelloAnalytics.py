@@ -15,7 +15,6 @@ KEY_FILE_LOCATION = os.path.join(BASE_DIR, 'Bicepperblog-e1b896d8062e.p12')
 SCOPES = ['https://www.googleapis.com/auth/analytics.readonly']
 DISCOVERY_URI = ('https://analyticsreporting.googleapis.com/$discovery/rest')
 
-# この2つをかきかえてね
 SERVICE_ACCOUNT_EMAIL = 'bicepper-blog-pv-read@bicepperblog.iam.gserviceaccount.com'
 VIEW_ID = '197751694'
 
