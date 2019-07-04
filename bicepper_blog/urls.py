@@ -29,7 +29,7 @@ from blog .views import (
 urlpatterns = [
     path('admin/filebrowser/', site.urls),
     path('grappelli/', include('grappelli.urls')),
-    path('admin/', admin.site.urls),
+    path('bicepper_chicken_leg/', admin.site.urls),
     path('', include('blog.urls')),
     path('hitcount/', include('hitcount.urls', namespace='hitcount')),
     path('contact', ContactView.as_view(), name='contact'),
