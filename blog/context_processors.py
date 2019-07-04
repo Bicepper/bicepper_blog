@@ -6,6 +6,7 @@ from .models import (
     BlogPost,
     PrivacyPolicy,
     GoogleAnalytics,
+    PopularPost,
 )
 import json
 
@@ -20,8 +21,7 @@ def common(request):
     subcategory = BlogPost.objects.filter(is_public=True, is_author=False,
                                           created_date__lt=timezone.localtime()).select_related(
         'category').select_related('category__parent').all().order_by('category')
-    ranking = BlogPost.objects.all().filter(is_public=True, is_author=False,
-                                            pk__in=rank_list).order_by('hit_count_generic')[:3]
+    ranking = PopularPost.objects.select_related('post_id').all().order_by('view_cnt')
     print(ranking)
     archive = BlogPost.objects.filter(is_public=True, is_author=False,
                                       created_date__lt=timezone.localtime()).order_by('created_date')

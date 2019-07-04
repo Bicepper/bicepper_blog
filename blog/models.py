@@ -75,6 +75,14 @@ class BlogPost(models.Model, HitCountMixin):
         return self.title
 
 
+class PopularPost(models.Model):
+    post_id = models.ForeignKey('BlogPost', verbose_name='ブログ', on_delete=models.DO_NOTHING)
+    view_cnt = models.IntegerField(_('ページビュー数'))
+
+    def __str__(self):
+        return self.post_id.title
+
+
 class Profile(models.Model):
     name = models.CharField(_('名前（表示名）'), blank=False, max_length=255)
     author_image = FileBrowseField("メイン画像", max_length=200, directory="media/uploads/profile/",

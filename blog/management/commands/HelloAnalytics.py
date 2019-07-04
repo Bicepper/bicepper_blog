@@ -77,11 +77,10 @@ def get_10_popular():
         rows = report.get('data', {}).get('rows', [])
         for row in rows:
             url = row['dimensions'][0]
-            title = row['dimensions'][1]
             page_view = row['metrics'][0]['values'][0]
-            yield url, title, int(page_view)
+            yield url, int(page_view)
 
 
 if __name__ == '__main__':
-    for url, title, page_view in get_10_popular():
-        print(url, title, page_view)
+    for url, page_view in get_10_popular():
+        print(url, page_view)
