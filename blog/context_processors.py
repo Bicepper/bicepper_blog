@@ -1,5 +1,4 @@
 from django.utils import timezone
-from django.conf import settings
 from .models import (
     ParentCategory,
     SubCategory,
@@ -8,12 +7,6 @@ from .models import (
     GoogleAnalytics,
     PopularPost,
 )
-import json
-
-# ランキング用の記事番号取得
-f = open(settings.BASE_DIR+'/blog/data/rank.json', 'r')
-rank_list = [k for k in json.load(f).keys()]
-f.close()
 
 
 def common(request):
