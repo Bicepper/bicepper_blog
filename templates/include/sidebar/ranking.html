@@ -6,7 +6,6 @@
 
 
     {% for rank in ranking %}
-        <div>{{ rank }}</div>
         <li class="blogrank-list-unit">
             <a href="{% url 'blog:detail' rank.pk %}" class="blogrank-list-link text-decoration-none">
                 <div class="blogrank-list-num">
