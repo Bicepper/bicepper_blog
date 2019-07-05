@@ -1,4 +1,5 @@
 /********************** Common ************************/
+＠font-face {font-display: swap;}
 body {
     font-family: 'Nunito Sans', 'Helvetica Neue', Arial, sans-serif;
     /*font-family:'Roboto','Helvetica Neue',Arial,sans-serif;*/
@@ -11,7 +12,6 @@ body {
 html{
     font-size:16px;
 }
-
 @media screen and (max-width: 599px) {
     html {
         font-size:13px;

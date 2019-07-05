@@ -51,7 +51,9 @@
     {% include 'include/footer/footer.html' %}
     <!-- JS -->
     <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    {% compress js %}
     <script type="text/javascript" src="{% static 'js/common.js' %}"></script>
+    {% endcompress %}
     <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
     <script type="IN/Share" data-url="bicepper.com" data-counter="top"></script>
