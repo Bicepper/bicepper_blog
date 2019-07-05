@@ -17,6 +17,9 @@ html{
         font-size:13px;
     }
 }
+.IN-widget{
+    display:none !important;
+}
 
 /**********************Utility************************/
 .text-decoration-none {
