@@ -7,7 +7,7 @@
 
     {% for rank in ranking %}
         <li class="blogrank-list-unit">
-            <a href="{% url 'blog:detail' rank.pk %}" class="blogrank-list-link text-decoration-none">
+            <a href="{% url 'blog:detail' rank.post_id.pk %}" class="blogrank-list-link text-decoration-none">
                 <div class="blogrank-list-num">
                     <span class="blogrank-list-rank">{{ forloop.counter }}</span>
                     <img src="{% get_media_prefix %}{{ rank.post_id.main_image|safe }}" alt="" class="blogrank-list-image">
