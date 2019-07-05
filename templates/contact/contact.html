@@ -33,8 +33,8 @@
 {% endblock %}
 
 {% block inline_javascript %}
-    <script src='https://www.google.com/recaptcha/api.js?render={{ recaptcha_site_id }}'></script>
-    <script>
+    <script src='https://www.google.com/recaptcha/api.js?render={{ recaptcha_site_id }}' defer></script>
+    <script defer>
         grecaptcha.ready(function() {
             $('#contact_form').submit(function(e){
                 var form = this;

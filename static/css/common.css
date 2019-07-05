@@ -1560,7 +1560,6 @@ html{
         transform: translateX(30px);
         padding-right: 0;
     }
-
     .blog-content-social-share-segment-link:hover .social-text {
         opacity: 0;
     }
