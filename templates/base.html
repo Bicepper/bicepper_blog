@@ -1,4 +1,4 @@
-{% load static %}
+{% load static compress %}
 <html lang="ja">
 <head prefix="og:http://ogp.me/ns# fb:http://ogp.me/ns/fb# website:http://ogp.me/ns/website#">
     <meta charset="UTF-8">
@@ -26,10 +26,12 @@
     <!--Favicon-->
     <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
 
+    {% compress css %}
     <!-- Reset CSS -->
     <link rel="stylesheet" href="{% static 'css/reset.css' %}" type="text/css">
     <!-- Common CSS -->
     <link rel="stylesheet" href="{% static 'css/common.css' %}" type="text/css">
+    {% endcompress %}
     <!-- Fancy CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/monokai.min.css">
