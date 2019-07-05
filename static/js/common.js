@@ -56,4 +56,9 @@ $(function(){
             $('.body-frame').removeClass('p-t-70');
         }
     });
+
+    var luminousTrigger = document.querySelectorAll('.luminous');
+    if( luminousTrigger !== null ) {
+        new LuminousGallery(luminousTrigger);
+    }
 });
