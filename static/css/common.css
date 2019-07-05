@@ -1484,6 +1484,28 @@ html{
         height: 100px;
         margin: -50px auto 0 auto;
     }
+    .blog-content-related{
+        flex-wrap: wrap;
+    }
+    .blog-content-related-item{
+        width:48%;
+    }
+    .blog-content-related-item:nth-child(1),
+    .blog-content-related-item:nth-child(2){
+        margin-bottom:20px;
+    }
+    .blog-content-related-item-link {
+        height: auto;
+        max-height: 180px;
+        min-height: 180px;
+    }
+    .blog-content-related-item-thumbnail{
+        min-height:60px;
+        height:60px;
+    }
+    .blog-content-related-item-thumbnail-image {
+        max-height: 60px;
+    }
     .lum-lightbox-inner img {
         max-width: 150vw;
         max-height: 88vh;
