@@ -975,6 +975,15 @@ html{
     width:100%;
     text-align:center;
 }
+.pre .prettyprint{
+    padding: 20px;
+    overflow: auto;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
 
 /********************** BlogSocialShare ************************/
 
