@@ -1007,6 +1007,12 @@ html{
     background: #FE2E9A;
     border-radius: 50%;
 }
+.md-inline{
+    padding: 2px 4px;
+    color: #FE2E2E;
+    background: #E6E6E6;
+    border-radius: 4px;
+}
 
 /********************** BlogSocialShare ************************/
 
