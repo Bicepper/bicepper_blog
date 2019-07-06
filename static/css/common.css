@@ -999,13 +999,12 @@ html{
 .blog-content-list-block .blog-content-list-block-item:before {
     position: absolute;
     content: "";
-    width: 7px;
-    height: 7px;
+    width: 8px;
+    height: 8px;
+    left: 0;
+    top: calc(50% - 4px);
+    background: #FE2E9A;
     border-radius: 50%;
-    left: 0px;
-    top: calc(50% - 6px);
-    background: #31aae2;
-    border: solid 3px #bee5fd;
 }
 
 /********************** BlogSocialShare ************************/
