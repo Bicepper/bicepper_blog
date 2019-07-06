@@ -988,11 +988,12 @@ html{
 
 }
 .blog-content-list-block .blog-content-list-block-item{
+    position: relative;
+    margin-top:10px;
     padding: 5px 0 5px 20px;
     color: #333;
     border-radius: 3px;
     background-size: 17px;
-    position: relative;
     list-style: none;
 }
 
