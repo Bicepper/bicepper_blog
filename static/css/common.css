@@ -1007,6 +1007,29 @@ html{
     background: #FE2E9A;
     border-radius: 50%;
 }
+
+.blog-content-table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.blog-content-table tr{
+    border-bottom: solid 2px white;
+}
+
+.blog-content-table tr:last-child{
+    border-bottom: none;
+}
+
+.blog-content-table th{
+    position: relative;
+    width: 30%;
+    padding: 10px 0;
+    text-align: left;
+    background-color: #52c2d0;
+    color: white;
+}
+
 .md-inline{
     padding: 2px 4px;
     color: #FE2E2E;
