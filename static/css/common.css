@@ -1030,6 +1030,13 @@ html{
     color: white;
 }
 
+.blog-content-table td{
+    width: 70%;
+    padding: 10px 0;
+    text-align: left;
+    background-color: #eee;
+}
+
 .md-inline{
     padding: 2px 4px;
     color: #FE2E2E;
