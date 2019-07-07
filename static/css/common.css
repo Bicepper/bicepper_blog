@@ -1010,6 +1010,7 @@ html{
 
 .blog-content-table{
     width: 100%;
+    margin-top:10px;
     border-collapse: collapse;
 }
 
@@ -1024,7 +1025,7 @@ html{
 .blog-content-table th{
     position: relative;
     width: 30%;
-    padding: 10px 0;
+    padding: 10px;
     text-align: left;
     background-color: #52c2d0;
     color: white;
@@ -1032,7 +1033,7 @@ html{
 
 .blog-content-table td{
     width: 70%;
-    padding: 10px 0;
+    padding: 10px;
     text-align: left;
     background-color: #eee;
 }
