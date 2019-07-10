@@ -1498,7 +1498,7 @@ html{
         margin-top:20px;
     }
     .header-nav-list {
-        width:25%;
+        width:20%;
         flex-direction: column;
     }
     .header-nav-list-link {
