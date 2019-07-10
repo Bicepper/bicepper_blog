@@ -824,6 +824,10 @@ html{
     cursor: pointer;
     color: #666;
 }
+.side-bar-banner{
+    width:100%;
+    height:auto;
+}
 
 /********************** Footer ************************/
 .footer {

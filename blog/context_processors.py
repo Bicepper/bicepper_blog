@@ -6,6 +6,7 @@ from .models import (
     PrivacyPolicy,
     GoogleAnalytics,
     PopularPost,
+    SideBanner1,
 )
 
 
@@ -18,11 +19,13 @@ def common(request):
     archive = BlogPost.objects.filter(is_public=True, is_author=False,
                                       created_date__lt=timezone.localtime()).order_by('created_date')
     gatag = GoogleAnalytics.objects.all().values('content')[0]['content'] if GoogleAnalytics.objects.all() else ''
+    sidebanner_1 = SideBanner1.objects.all().values('content')[0]['content'] if SideBanner1.objects.all() else ''
     context = {
         'categories': category,
         'sub_categories': subcategory,
         'ranking': ranking,
         'archive': archive,
         'gatag': gatag,
+        'sidebanner_1': sidebanner_1,
     }
     return context

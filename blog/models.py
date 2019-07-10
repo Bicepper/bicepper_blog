@@ -123,3 +123,15 @@ class GoogleAnalytics(models.Model):
 
     def __str__(self):
         return 'GAタグ'
+
+
+class SideBanner1(models.Model):
+    content = models.TextField(default='', blank=True)
+
+    class Meta:
+        verbose_name = _('サイドバナー1')
+        verbose_name_plural = _('サイドバナー1')
+
+    def __str__(self):
+        return 'サイドバナー1'
+
