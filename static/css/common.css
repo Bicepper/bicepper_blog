@@ -824,13 +824,16 @@ html{
     cursor: pointer;
     color: #666;
 }
-
+.side-bar-banner{
+    text-align:center;
+}
 .side-bar-banner a{
     display:block;
+    width: 100%;
+    height: auto;
 }
 .side-bar-banner img{
     width:100%;
-    height:auto;
 }
 
 /********************** Footer ************************/
