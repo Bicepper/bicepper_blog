@@ -135,3 +135,13 @@ class SideBanner1(models.Model):
     def __str__(self):
         return 'サイドバナー1'
 
+
+class SpHeadBanner1(models.Model):
+    content = models.TextField(default='', blank=True)
+
+    class Meta:
+        verbose_name = _('スマホヘッダーバナー1')
+        verbose_name_plural = _('スマホヘッダーバナー1')
+
+    def __str__(self):
+        return 'スマホヘッダーバナー1'

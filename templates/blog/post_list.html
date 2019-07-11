@@ -11,6 +11,9 @@
 
 {% block content %}
     <div class="left-column">
+        <article class="blog-list blog-list-banner">
+            {{ sp_head_banner_1|safe }}
+        </article>
         {% if search_text != None %}
             <div class="search-result-text">「{{ search_text }}」の検索結果</div>
         {% endif %}

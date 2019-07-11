@@ -7,6 +7,7 @@ from .models import PrivacyPolicy
 from .models import GoogleAnalytics
 from .models import PopularPost
 from .models import SideBanner1
+from .models import SpHeadBanner1
 
 
 # Register your models here.
@@ -18,5 +19,6 @@ admin.site.register(PrivacyPolicy)
 admin.site.register(GoogleAnalytics)
 admin.site.register(PopularPost)
 admin.site.register(SideBanner1)
+admin.site.register(SpHeadBanner1)
 
 
