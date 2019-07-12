@@ -1258,6 +1258,12 @@ html{
 .blog-content-section-title:not(:first-child) {
     margin-top: 60px;
 }
+.blog-content-section-h4{
+    margin: 40px 0 0 0;
+    font-size: 1.2rem;
+    padding: 0 0 10px 0;
+    border-bottom: 2px solid #CCCCCC;
+}
 .blog-content-section-paragraph {
     margin: 40px 0 0 0;
     line-height: 1.7;
