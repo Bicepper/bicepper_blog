@@ -1028,7 +1028,10 @@ html{
     line-height: 1.6;
 }
 .blog-content-list-block{
-
+    position: relative;
+    padding: 20px 24px;
+    background: #edf4fb;
+    border-radius: 6px;
 }
 .blog-content-list-block .blog-content-list-block-item{
     position: relative;
