@@ -145,3 +145,16 @@ class SpHeadBanner1(models.Model):
 
     def __str__(self):
         return 'スマホヘッダーバナー1'
+
+
+class BlogInnerBanner1(models.Model):
+    genre = models.ForeignKey('ParentCategory', verbose_name='カテゴリ', default=1, blank=False, on_delete=models.PROTECT)
+    content = models.TextField(default='', blank=True)
+
+    class Meta:
+        verbose_name = _('ブログ内バナー1')
+        verbose_name_plural = _('ブログ内バナー1')
+
+    def __str__(self):
+        return str(self.genre)
+
