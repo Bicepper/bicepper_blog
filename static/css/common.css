@@ -1657,6 +1657,9 @@ html{
         width: 6vw;
         height: 6vw;
     }
+    .blog-list-banner{
+        display:none;
+    }
 }
 
 @media screen and (min-width: 600px) and ( max-width: 1040px) {
