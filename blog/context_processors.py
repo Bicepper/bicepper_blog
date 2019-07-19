@@ -8,7 +8,6 @@ from .models import (
     PopularPost,
     SideBanner1,
     SpHeadBanner1,
-    BlogInnerBanner1,
 )
 
 
@@ -23,8 +22,6 @@ def common(request):
     gatag = GoogleAnalytics.objects.all().values('content')[0]['content'] if GoogleAnalytics.objects.all() else ''
     sidebanner_1 = SideBanner1.objects.all().values('content')[0]['content'] if SideBanner1.objects.all() else ''
     sp_head_banner_1 = SpHeadBanner1.objects.all().values('content')[0]['content'] if SpHeadBanner1.objects.all() else ''
-    blog_inner_ban_1 = BlogInnerBanner1.objects.all().values('genre__slug', 'content')
-    print(blog_inner_ban_1)
     context = {
         'categories': category,
         'sub_categories': subcategory,
@@ -33,6 +30,5 @@ def common(request):
         'gatag': gatag,
         'sidebanner_1': sidebanner_1,
         'sp_head_banner_1': sp_head_banner_1,
-        'blog_inner_ban_1': blog_inner_ban_1,
     }
     return context
