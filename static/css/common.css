@@ -252,7 +252,7 @@ html{
 .scroll-top {
     position: fixed;
     display: none;
-    bottom: 20px;
+    bottom: 60px;
     right: 20px;
     font-size: 14px;
     z-index:11110;
