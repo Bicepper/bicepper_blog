@@ -866,6 +866,10 @@ html{
     font-weight: 800;
     color: #fff;
 }
+ins{
+    background-color:#fff !important;
+    height:200px !important;
+}
 
 /********************** Footer ************************/
 .footer {
