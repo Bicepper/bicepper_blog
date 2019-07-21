@@ -1714,6 +1714,9 @@ ins{
     .blog-list-banner{
         display:none;
     }
+    .infeed {
+      height: 200px;
+    }
 }
 
 @media screen and (min-width: 1041px) {
@@ -1754,5 +1757,8 @@ ins{
     }
     .blog-list-banner{
         display:none;
+    }
+    .infeed {
+      height: 200px;
     }
 }
