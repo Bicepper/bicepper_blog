@@ -16,6 +16,17 @@
             <div class="search-result-text">「{{ search_text }}」の検索結果</div>
         {% endif %}
         {% if object_list.all %}
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-format="fluid"
+                 data-ad-layout-key="-fq+4k+8n-cq-q"
+                 data-ad-client="ca-pub-1738992443098526"
+                 data-ad-slot="7649725936"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+
             {% for posts in object_list %}
                 <article class="blog-list">
                     <a href="{% url 'blog:detail' posts.pk %}" class="blog-list-link text-decoration-none color-grey">
