@@ -871,38 +871,38 @@ ins{
 }
 
 .amazon-box {
-background: #fff;
-margin: 1.5em 0;
-padding: 1em 1em .2em;
-border: 1px solid rgb(255,172,103);
-display: inline-block;
-width: 100%; /* ここは必要に応じて変更 */
-}
+    display: flex;
+    width: 100%;
+    margin: 1.5em 0;
+    padding: .2em;
+    background: #fff;
+    border: 1px solid rgb(255,172,103);}
 
 .amazon-img {
-margin: 1em 1em 1.8em;
-width: 23%; /* ここは必要に応じて変更 */
-float: left;
+    width: 30%;
+    margin: 1em 1em 1.8em;
 }
 
 .amazon-img a:hover {
-opacity: .7;
+    opacity: .7;
 }
 
 .amazon-text {
-margin: 1em;
+    width: 70%;
+    margin: 1em;
 }
 
 .amazon-text a {
-text-decoration: none;
-font-weight: bold;
-font-size: 1.4em;
-color: rgb(255,116,0);
+    line-height: 1.5;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.4em;
+    color: rgb(255,116,0);
 }
 
 .amazon-text a:hover {
-color: #FF9100;
-text-decoration: underline;
+    color: #FF9100;
+    text-decoration: underline;
 }
 
 /********************** Footer ************************/
