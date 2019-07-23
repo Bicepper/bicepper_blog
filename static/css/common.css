@@ -1698,6 +1698,22 @@ ins{
     .blog-list-banner{
         display:none;
     }
+    .amazon-img{
+        width:40%;
+    }
+    .amazon-img a{
+        display:block;
+        width:100%;
+    }
+    .amazon-img a img{
+        width:100%;
+    }
+    .amazon-text{
+        width:60%;
+    }
+    .amazon-text a{
+        font-size: 1.2em;
+    }
 }
 
 @media screen and (min-width: 600px) and ( max-width: 1040px) {
@@ -1750,6 +1766,22 @@ ins{
     }
     .infeed {
       height: 200px;
+    }
+    .amazon-img{
+        width:40%;
+    }
+    .amazon-img a{
+        display:block;
+        width:100%;
+    }
+    .amazon-img a img{
+        width:100%;
+    }
+    .amazon-text{
+        width:60%;
+    }
+    .amazon-text a{
+        font-size: 1.2em;
     }
 }
 
