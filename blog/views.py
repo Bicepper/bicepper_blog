@@ -138,8 +138,8 @@ class PostDetailView(DetailView):
         get_category = BlogPost.objects.filter(pk=self.kwargs['pk']).values('category')[0]['category']
         get_count = BlogPost.objects.filter(category=get_category).count()
         get_slice = random.random() * (get_count - 4)
-        print(get_slice)
-        recommend_category = BlogPost.objects.filter(category=get_category).exclude(pk=self.kwargs['pk'])[get_slice: get_slice+4] if get_slice >= 4 else BlogPost.objects.filter(category=get_category).exclude(pk=self.kwargs['pk'])
+        recommend_category = BlogPost.objects.filter(
+            category=get_category, is_public=True, is_author=False, created_date__lt=timezone.localtime()).exclude(pk=self.kwargs['pk'])[get_slice: get_slice+4] if get_slice >= 4 else BlogPost.objects.filter(category=get_category, is_public=True, is_author=False, created_date__lt=timezone.localtime()).exclude(pk=self.kwargs['pk'])
 
         context['social_url'] = url
         context['test_form'] = self.form_class()
