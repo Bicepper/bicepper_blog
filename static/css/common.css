@@ -1378,8 +1378,9 @@ ins{
 /********************** Related ************************/
 .blog-content-related {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: space-between;
+    flex-wrap: wrap;
     margin-top: 20px;
 }
 .blog-content-related-item {
@@ -1393,14 +1394,12 @@ ins{
     align-content: stretch;
     justify-content: space-between;
     width: 100%;
-    height: 220px;
-    max-height: 220px;
-    min-height: 220px;
+    height:auto;
 }
 .blog-content-related-item-thumbnail {
     position: relative;
     width: 100%;
-    height: 122px;
+    height: 89px;
     overflow: hidden;
 }
 .blog-content-related-item-overview {
@@ -1412,7 +1411,8 @@ ins{
     justify-content: space-between;
     flex: 1;
     width: 100%;
-    padding: 6px;
+    min-height: 98px;
+    padding: 13px 6px 6px 6px;
 }
 .blog-content-related-item-title {
     font-size: 13px;
@@ -1433,8 +1433,9 @@ ins{
     position: relative;
     display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
     z-index: 10;
+    object-fit: cover;
     -moz-transition: -moz-transform 0.2s linear;
     -webkit-transition: -webkit-transform 0.2s linear;
     -o-transition: -o-transform 0.2s linear;
@@ -1671,7 +1672,7 @@ ins{
     }
     .blog-content-related-item:nth-child(1),
     .blog-content-related-item:nth-child(2){
-        margin-bottom:20px;
+        margin-bottom:.8em;
     }
     .blog-content-related-item-link {
         height: auto;
@@ -1679,8 +1680,8 @@ ins{
         min-height: 180px;
     }
     .blog-content-related-item-thumbnail{
-        min-height:60px;
-        height:60px;
+        min-height:89px;
+        height:89px;
     }
     .blog-content-related-item-thumbnail-image {
         object-fit: cover;
@@ -1783,6 +1784,11 @@ ins{
     .amazon-text a{
         font-size: 1.2em;
     }
+    .blog-content-related-item:nth-child(1),
+    .blog-content-related-item:nth-child(2),
+    .blog-content-related-item:nth-child(3){
+        margin-bottom:.8em;
+    }
 }
 
 @media screen and (min-width: 1041px) {
@@ -1826,5 +1832,10 @@ ins{
     }
     .infeed {
       height: 200px;
+    }
+    .blog-content-related-item:nth-child(1),
+    .blog-content-related-item:nth-child(2),
+    .blog-content-related-item:nth-child(3){
+        margin-bottom:.8em;
     }
 }

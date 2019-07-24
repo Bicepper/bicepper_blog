@@ -103,11 +103,11 @@
                             <span class="social-text">Hatena</span>
                         </a>
                     </div>
-
+                    <p>{{ category }}</p>
                     <div class="blog-content-section">
                         <h3 class="blog-content-section-title">RELATED POST</h3>
                             <div class="blog-content-related">
-                                {% for posts_list in blogpost.relation_posts.all %}
+                                {% for posts_list in category %}
                                     <article class="blog-content-related-item">
                                         <a href="{% url 'blog:detail' posts_list.pk %}" class="blog-content-related-item-link text-decoration-none color-grey">
                                             <div class="blog-content-related-item-thumbnail">
@@ -116,11 +116,24 @@
                                             </div>
                                             <div class="blog-content-related-item-overview">
                                                 <h2 class="blog-content-related-item-title">{{ posts_list.title }}</h2>
-                                                <div class="blog-postdate"><i class="far fa-calendar-alt"></i>&nbsp;{{ posts_list.created_date|date:"Y.m.j" }}</div>
                                             </div>
                                         </a>
                                     </article>
                                 {% endfor %}
+{#                                {% for posts_list in blogpost.relation_posts.all %}#}
+{#                                    <article class="blog-content-related-item">#}
+{#                                        <a href="{% url 'blog:detail' posts_list.pk %}" class="blog-content-related-item-link text-decoration-none color-grey">#}
+{#                                            <div class="blog-content-related-item-thumbnail">#}
+{#                                                <img src="{% get_media_prefix %}{{ posts_list.main_image|safe }}" alt="" class="blog-content-related-item-thumbnail-image">#}
+{#                                                <span class="blog-content-related-item-category-min">{{ posts_list.category.parent.title }}</span>#}
+{#                                            </div>#}
+{#                                            <div class="blog-content-related-item-overview">#}
+{#                                                <h2 class="blog-content-related-item-title">{{ posts_list.title }}</h2>#}
+{#                                                <div class="blog-postdate"><i class="far fa-calendar-alt"></i>&nbsp;{{ posts_list.created_date|date:"Y.m.j" }}</div>#}
+{#                                            </div>#}
+{#                                        </a>#}
+{#                                    </article>#}
+{#                                {% endfor %}#}
                             </div>
                     </div>
                 </div>

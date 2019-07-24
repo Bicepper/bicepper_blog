@@ -1,5 +1,6 @@
 import json
 import datetime
+import random
 from urllib import parse
 from urllib import request
 from django.contrib import messages
@@ -133,9 +134,16 @@ class PostDetailView(DetailView):
         now_time = datetime.datetime.now().replace(microsecond=0)
         post_time = BlogPost.objects.filter(pk=self.kwargs['pk']).values('created_date')[0]['created_date'].replace(tzinfo=None)
 
+        # Recommend記事取得
+        get_category = BlogPost.objects.filter(pk=self.kwargs['pk']).values('category')[0]['category']
+        get_count = BlogPost.objects.filter(category=get_category).count()
+        get_slice = random.random() * (get_count - 4)
+        recommend_category = BlogPost.objects.filter(category=get_category).exclude(pk=self.kwargs['pk'])[get_slice: get_slice+4]
+
         context['social_url'] = url
         context['test_form'] = self.form_class()
         context['time_elapsed'] = int(str(now_time - post_time).split()[0]) if len(str(now_time - post_time).split(",")) >= 2 else 0  # 差分0日だとエラーになるので
+        context['category'] = recommend_category
 
         return context
 
