@@ -1833,6 +1833,22 @@ ins{
     .infeed {
       height: 200px;
     }
+    .amazon-img{
+        width:40%;
+    }
+    .amazon-img a{
+        display:block;
+        width:100%;
+    }
+    .amazon-img a img{
+        width:100%;
+    }
+    .amazon-text{
+        width:60%;
+    }
+    .amazon-text a{
+        font-size: 1.2em;
+    }
     .blog-content-related-item:nth-child(1),
     .blog-content-related-item:nth-child(2),
     .blog-content-related-item:nth-child(3){
