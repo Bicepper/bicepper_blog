@@ -1638,6 +1638,12 @@ ins{
     .side-bar {
         width: 100%;
     }
+    .blog-content-main {
+        font-size: 16px;
+    }
+    .blog-content-intro {
+        font-size: 16px;
+    }
     .blog-content-title {
         padding: 20px 20px;
     }
