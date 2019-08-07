@@ -1737,6 +1737,12 @@ ins{
     .amazon-text a{
         font-size: 1.2em;
     }
+    .blog-content-section-h4{
+        font-size:18px;
+    }
+    .blog-content-section-h5{
+        font-size:16px;
+    }
 }
 
 @media screen and (min-width: 600px) and ( max-width: 1040px) {
