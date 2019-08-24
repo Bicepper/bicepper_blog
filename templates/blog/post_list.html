@@ -58,13 +58,7 @@
                 {% if page_obj.has_previous %}
                     <li class="pager-list"><a class="pager-list-link text-decoration-none" href="?page={{ page_obj.previous_page_number }}">&lt;</a></li>
                 {% endif %}
-                {% for i in paginator.page_range %}
-                    {% if page_obj.number == i %}
-                        <li class="pager-list"><span aria-current="page" class="pager-list-current">{{ i }}</span></li>
-                    {% else %}
-                        <li class="pager-list"><a class="pager-list-link text-decoration-none" href="?page={{ i }}">{{ i }}</a></li>
-                    {% endif %}
-                {% endfor %}
+                <li class="pager-list">{{ page_obj.number }} / {{ page_obj.paginator.num_pages }}</li>
                 {% if page_obj.has_next %}
                     <li class="pager-list"><a class="pager-list-link text-decoration-none" href="?page={{ page_obj.next_page_number }}">&gt;</a></li>
                 {% endif %}

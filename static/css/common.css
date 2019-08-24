@@ -478,6 +478,11 @@ html{
     width: 100%;
     list-style: none;
 }
+.pager-list{
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+}
 .pager-list:first-child {
     margin: 0 2px 0 0;
 }
