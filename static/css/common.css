@@ -1127,6 +1127,36 @@ ins{
     background-color: #eee;
 }
 
+.blog-content-table2{
+    width: 100%;
+    margin-top:10px;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.blog-content-table2 tr{
+    border-bottom: solid 2px white;
+}
+
+.blog-content-table2 tr:last-child{
+    border-bottom: none;
+}
+
+.blog-content-table2 th{
+    position: relative;
+    padding: 10px;
+    text-align: center;
+    background-color: #52c2d0;
+    color: white;
+}
+
+.blog-content-table2 td{
+    width: 70%;
+    padding: 10px;
+    text-align: left;
+    background-color: #eee;
+}
+
 .md-inline{
     padding: 2px 4px;
     color: #FE2E2E;
