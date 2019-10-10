@@ -1151,9 +1151,8 @@ ins{
 }
 
 .blog-content-table2 td{
-    width: 70%;
     padding: 10px;
-    text-align: left;
+    text-align: center;
     background-color: #eee;
 }
 
