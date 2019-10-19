@@ -42,6 +42,7 @@ DJANGO_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'advertisement',
 ]
 
 THIRD_PARTY_APPS = [
@@ -159,7 +160,7 @@ CKEDITOR_CONFIGS = {
             ['Bold', 'Link', 'Unlink', 'Image', 'CodeSnippet', 'Link', 'Unlink', 'Anchor', 'Smiley', 'SpecialChar',
              'ShowBlocks', 'Source'],
         ],
-        'extraPlugins': 'codesnippet,wordcount,notification',
+        'extraPlugins': 'codesnippet,wordcount,notification,mathjax',
     },
     'special': {  # エディタの機能を変更したものはこっち
         'toolbar': 'Special',
