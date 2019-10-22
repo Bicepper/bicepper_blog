@@ -23,6 +23,10 @@ from .forms import BlogPostSearch
 from .forms import ContactForm
 from .models import Profile
 from .models import PrivacyPolicy
+from advertisement.models import (
+    AdvertisementBlogFooter,
+    AdvertisementBlogSide
+)
 
 
 class BaseListView(ListView):
@@ -145,6 +149,8 @@ class PostDetailView(DetailView):
         context['test_form'] = self.form_class()
         context['time_elapsed'] = int(str(now_time - post_time).split()[0]) if len(str(now_time - post_time).split(",")) >= 2 else 0  # 差分0日だとエラーになるので
         context['category'] = recommend_category
+        context['blog_footer_ad'] = AdvertisementBlogFooter.objects.filter(category=get_category)
+        context['blog_side_ad'] = AdvertisementBlogSide.objects.filter(category=get_category)
 
         return context
 

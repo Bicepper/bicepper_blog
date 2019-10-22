@@ -1,3 +1,9 @@
 from django.contrib import admin
+from .models import (
+    AdvertisementBlogFooter,
+    AdvertisementBlogSide
+)
 
-# Register your models here.
+admin.site.register(AdvertisementBlogFooter)
+admin.site.register(AdvertisementBlogSide)
+
