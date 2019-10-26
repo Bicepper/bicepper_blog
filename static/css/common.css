@@ -841,8 +841,9 @@ html{
     width: 100%;
     height: auto;
 }
-.side-bar-banner img{
+.side-bar-banner-img{
     width:100%;
+    height:auto;
 }
 .blog-list-banner{
     position:relative;
@@ -1180,6 +1181,14 @@ ins{
      left: 0;
      width: 100%;
      height: 100%;
+}
+
+.blog-content-main-footer-add{
+    width:100%;
+}
+
+.blog-content-main-footer-add img{
+    max-width:100%;
 }
 
 /********************** BlogSocialShare ************************/
