@@ -1191,6 +1191,52 @@ ins{
     max-width:100%;
 }
 
+.blog-content-main-footer-add-segment{
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    height:auto;
+    padding:40px;
+    border:1px solid #E6E6E6;
+}
+
+.blog-content-main-footer-add-segment-top{
+    display:flex;
+    justify-content:space-between;
+    width:100%;
+    height:auto;
+}
+
+.blog-content-main-footer-add-segment-title{
+    width:60%;
+    font-size:18px;
+    line-height:1.6;
+}
+
+.blog-content-main-footer-add-segment-image{
+    width:40%;
+    height:auto;
+    text-align:right;
+}
+
+.blog-content-main-footer-add-segment-image-img{
+    width:70%;
+    height:auto;
+}
+
+.blog-content-main-footer-add-segment-bottom{
+    width:100%;
+    padding:20px;
+    text-align:center;
+    font-weight:600;
+}
+
+.blog-content-main-footer-add-segment-bottom-red{
+    color:#fff;
+    background:#FD1E01;
+    border-radius:6px;
+}
+
 /********************** BlogSocialShare ************************/
 
 .fa-hatena:before {
