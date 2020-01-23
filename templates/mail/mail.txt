@@ -1,8 +1,0 @@
-{{ user.username }}様
-
-名前: {{ name }}
-メールアドレス: {{ email }}
-メッセージ: {{ message }}
-IP情報: {{ user_ip }}
-UA: {{ user_agent }}
-HOSTヘッダー: {{ http_host }}
