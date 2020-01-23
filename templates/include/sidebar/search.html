@@ -1,0 +1,11 @@
+{% load static %}
+
+<h2 class="side-bar-title"><i class="side-bar-title-icon fas fa-search"></i>Search</h2>
+<div class="side-bar-frame">
+    <form action="{% url 'blog:index' %}" class="side-bar-form" method="get">
+        {% for field in test_form %}
+            {{ field}}
+        {% endfor %}
+        <button type="submit" class="side-bar-form-button"><i class="fas fa-search"></i></button>
+    </form>
+</div>

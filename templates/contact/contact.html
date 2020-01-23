@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ block.super }} | Contact{% endblock %}
+{% block description %}Bicepper.comの問い合わせフォームです。{% endblock %}
+{% block ogtitle %}{{ block.super }} | Contact{% endblock %}
+{% block summary %}Bicepper.comの問い合わせフォームです。{% endblock %}
+{% block ogsitename %}Contact | {{ block.super }}{% endblock %}
+{% block ogimg %}{{ block.super }}{% endblock %}
+
+{% block content %}
+    <div class="left-column">
+        <article class="content-overwrap">
+            <div class="content-innerwrap-equal">
+                <p class="normal-lineheight">本サイトについてのご質問、ご要望などございましたら、以下のお問い合わせフォームをご利用下さい。</p>
+                <p class="normal-lineheight m-t-10">ご記入頂くお名前とメールアドレスは返信のためのものです。ご連絡頂いた内容、プライバシーは極力、配慮致します。<br>個人情報の取扱い等について詳しくは、本サイトの<a href="https://bicepper.com/privacy">個人情報保護方針（プライバシーポリシー）</a>をご参照下さい。</p>
+                <p class="normal-lineheight m-t-10">お問合わせの内容によっては、返信致しかねる場合もございます。予めご了承下さい。</p>
+                <form method="POST" id="contact_form" class="m-t-20">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="hidden" name="g-recaptcha-response" id='recaptcha'>
+                    <button type="submit" class="form-control-button">送信</button>
+                </form>
+            </div>
+        </article>
+    </div>
+    <div class="side-bar">
+        {% include 'include/sidebar/author.html' %}
+        {% include 'include/sidebar/search.html' %}
+        {% include 'include/sidebar/category.html'%}
+        {% include 'include/sidebar/archive.html' %}
+        {% include 'include/sidebar/ranking.html' %}
+        {% include 'include/sidebar/twitter.html' %}
+    </div>
+{% endblock %}
+
+{% block inline_javascript %}
+    <script src='https://www.google.com/recaptcha/api.js?render={{ recaptcha_site_id }}'></script>
+    <script>
+        grecaptcha.ready(function() {
+            $('#contact_form').submit(function(e){
+                var form = this;
+                e.preventDefault();
+                grecaptcha.execute('{{ recaptcha_site_id }}', {action: 'contact_form'}).then(function(token) {
+                    $('#recaptcha').val(token);
+                    form.submit();
+                });
+            });
+        });
+    </script>
+{% endblock %}

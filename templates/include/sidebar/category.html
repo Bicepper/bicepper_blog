@@ -1,0 +1,12 @@
+{% load static %}
+{% regroup sub_categories by category as sub_cat %}
+
+<h2 class="side-bar-title m-t-20"><i class="side-bar-title-icon fas fa-th-list"></i>Category</h2>
+<div class="side-bar-frame side-bar-category">
+    {{ sub_cat.category.slug }}
+    <ul class="side-bar-category-list">
+        {% for cat_item in sub_cat %}
+            <li class="side-bar-category-list-item"><a href="{% url 'blog:sub_category_list' cat_item.grouper.parent.slug cat_item.grouper.slug %}" class="side-bar-category-list-link">{{ cat_item.grouper.slug }} （{{ cat_item.list|length }}）</a></li>
+        {% endfor %}
+    </ul>
+</div>

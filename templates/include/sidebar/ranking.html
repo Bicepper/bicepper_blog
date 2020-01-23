@@ -1,0 +1,23 @@
+{% load static %}
+{% load hitcount_tags %}
+
+<h2 class="side-bar-title m-t-20"><i class="side-bar-title-icon fas fa-crown"></i><span>Ranking</span></h2>
+<ul class="side-bar-frame blogrank-list">
+
+
+    {% for rank in ranking %}
+        <li class="blogrank-list-unit">
+            <a href="{% url 'blog:detail' rank.post_id.pk %}" class="blogrank-list-link text-decoration-none">
+                <div class="blogrank-list-num">
+                    <span class="blogrank-list-rank">{{ forloop.counter }}</span>
+                    <img src="{% get_media_prefix %}{{ rank.post_id.main_image|safe }}" alt="" class="blogrank-list-image">
+                </div>
+                <div class="blogrank-list-desc">
+                    <h2 class="blogrank-list-title">{{ rank.post_id.title }}</h2>
+                    <div class="blogrank-list-date">{{ rank.view_cnt }} View</div>
+                </div>
+            </a>
+        </li>
+    {% endfor %}
+
+</ul>

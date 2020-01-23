@@ -1,0 +1,197 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load blog_tag %}
+{% load hitcount_tags %}
+
+{% block title %}{{ block.super }} | {{ blogpost.title }}{% endblock %}
+{% block description %}{{ blogpost.description }}{% endblock %}
+{% block ogtitle %}{{ block.super }} | {{ blogpost.title }}{% endblock %}
+{% block summary %}{{ blogpost.description }}{% endblock %}
+{% block ogsitename %}{{ blogpost.title }} | {{ block.super }}{% endblock %}
+{% block ogimg %}{% get_media_prefix %}{{ blogpost.main_image|safe }}{% endblock %}
+
+{% block content %}
+    <div class="left-column">
+            <article class="blog-list blog-list-banner">{{ sp_head_banner_1|safe }}</article>
+
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- Blog-detail-pc -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-1738992443098526"
+                 data-ad-slot="2166121501"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+
+            <article class="content-overwrap m-t-10">
+                <h2 class="blog-content-title">{{ blogpost.title }}</h2>
+                <div class="content-innerwrap">
+                    {% if time_elapsed > 365 %}
+                        <div class="alert-old-post"><i class="fas fa-exclamation-triangle"></i> この記事は公開から1年以上経過しています。</div>
+                    {% endif %}
+
+                    <img src="{% get_media_prefix %}{{ blogpost.main_image|safe }}" alt="" class="blog-content-image">
+
+                    <div class="blog-content-time"><i class="far fa-calendar-alt"></i>&nbsp;{{ blogpost.created_date|date:"Y-m-j" }}{% if blogpost.published_date is not None %}&nbsp;&nbsp;/&nbsp;&nbsp;<i class="fas fa-history"></i>&nbsp;{{ blogpost.published_date|date:"Y-m-j" }}{% endif %}</div>
+
+                    <div class="blog-content-share-title">SHARE</div>
+
+                    <div class="blog-content-social-share">
+                        <a href="https://twitter.com/share?url={{ social_url }}&text={{ blogpost.title }} - Bicepper.com" target="_blank" rel="nofollow" class="blog-content-social-share-segment-link">
+                            <i class="fab fa-twitter"></i>
+                            <span class="social-text">Twitter</span>
+                        </a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ social_url }}" target="_blank" rel="nofollow" class="blog-content-social-share-segment-link">
+                            <i class="fab fa-facebook-f"></i>
+                            <span class="social-text">Facebook</span>
+                        </a>
+                        <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ social_url }}&title={{ blogpost.title }}" target="_blank" rel="nofollow" class="blog-content-social-share-segment-link">
+                            <i class="fab fa-linkedin-in"></i>
+                            <span class="social-text">Linkedin</span>
+                        </a>
+                        <a href="https://social-plugins.line.me/lineit/share?url={{ social_url }}" target="_blank" rel="nofollow" class="blog-content-social-share-segment-link">
+                            <i class="fab fa-line"></i>
+                            <span class="social-text">Line</span>
+                        </a>
+                        <a href="https://b.hatena.ne.jp/add?mode=confirm&url={{ social_url }}&title={{ blogpost.title }}" target="_blank" rel="nofollow" class="blog-content-social-share-segment-link">
+                            <i class="fab fa-hatena"></i>
+                            <span class="social-text">Hatena</span>
+                        </a>
+                    </div>
+
+                    <div class="blog-content-intro">
+                        <p>{{ blogpost.description }}</p>
+                    </div>
+
+                    <div>
+                        {{ blog_inner_ban_1.genre }}
+                    </div>
+
+                    <div class="blog-content-index">
+                        <div class="blog-content-index-title">Contents</div>
+                        <ul class="blog-content-index-list"></ul>
+                    </div>
+
+                    <div class="blog-content-main">
+                        {{ blogpost.content|safe }}
+
+
+                        <div class="m-t-20 blog-content-main-footer-add">
+                        {% for footer_ad in blog_footer_ad %}
+                            {{ footer_ad.content|safe }}
+                        {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="blog-content-share-title m-t-60">SHARE</div>
+
+                    <div class="blog-content-social-share">
+                        <a href="https://twitter.com/share?url={{ social_url }}&text={{ blogpost.title }} - Bicepper.com" target="_blank" rel="nofollow" class="blog-content-social-share-segment-link">
+                            <i class="fab fa-twitter"></i>
+                            <span class="social-text">Twitter</span>
+                        </a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ social_url }}" target="_blank" rel="nofollow" class="blog-content-social-share-segment-link">
+                            <i class="fab fa-facebook-f"></i>
+                            <span class="social-text">Facebook</span>
+                        </a>
+                        <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ social_url }}&title={{ blogpost.title }}" target="_blank" rel="nofollow" class="blog-content-social-share-segment-link">
+                            <i class="fab fa-linkedin-in"></i>
+                            <span class="social-text">Linkedin</span>
+                        </a>
+                        <a href="https://social-plugins.line.me/lineit/share?url={{ social_url }}" target="_blank" rel="nofollow" class="blog-content-social-share-segment-link">
+                            <i class="fab fa-line"></i>
+                            <span class="social-text">Line</span>
+                        </a>
+                        <a href="https://b.hatena.ne.jp/add?mode=confirm&url={{ social_url }}&title={{ blogpost.title }}" target="_blank" rel="nofollow" class="blog-content-social-share-segment-link">
+                            <i class="fab fa-hatena"></i>
+                            <span class="social-text">Hatena</span>
+                        </a>
+                    </div>
+                    <div class="blog-content-section">
+                        <h3 class="blog-content-section-title">RELATED POST</h3>
+                            <div class="blog-content-related">
+                                {% for posts_list in category %}
+                                    <article class="blog-content-related-item">
+                                        <a href="{% url 'blog:detail' posts_list.pk %}" class="blog-content-related-item-link text-decoration-none color-grey">
+                                            <div class="blog-content-related-item-thumbnail">
+                                                <img src="{% get_media_prefix %}{{ posts_list.main_image|safe }}" alt="" class="blog-content-related-item-thumbnail-image">
+                                                <span class="blog-content-related-item-category-min">{{ posts_list.category.parent.title }}</span>
+                                            </div>
+                                            <div class="blog-content-related-item-overview">
+                                                <h2 class="blog-content-related-item-title">{{ posts_list.title }}</h2>
+                                            </div>
+                                        </a>
+                                    </article>
+                                {% endfor %}
+{#                                {% for posts_list in blogpost.relation_posts.all %}#}
+{#                                    <article class="blog-content-related-item">#}
+{#                                        <a href="{% url 'blog:detail' posts_list.pk %}" class="blog-content-related-item-link text-decoration-none color-grey">#}
+{#                                            <div class="blog-content-related-item-thumbnail">#}
+{#                                                <img src="{% get_media_prefix %}{{ posts_list.main_image|safe }}" alt="" class="blog-content-related-item-thumbnail-image">#}
+{#                                                <span class="blog-content-related-item-category-min">{{ posts_list.category.parent.title }}</span>#}
+{#                                            </div>#}
+{#                                            <div class="blog-content-related-item-overview">#}
+{#                                                <h2 class="blog-content-related-item-title">{{ posts_list.title }}</h2>#}
+{#                                                <div class="blog-postdate"><i class="far fa-calendar-alt"></i>&nbsp;{{ posts_list.created_date|date:"Y.m.j" }}</div>#}
+{#                                            </div>#}
+{#                                        </a>#}
+{#                                    </article>#}
+{#                                {% endfor %}#}
+                            </div>
+                    </div>
+                </div>
+            </article>
+    </div>
+    <div class="side-bar">
+        {% include 'include/sidebar/author.html' %}
+        {% include 'include/sidebar/search.html' %}
+        {% include 'include/sidebar/banner_side_1.html' %}
+        {% include 'include/sidebar/category.html'%}
+        {% include 'include/sidebar/archive.html' %}
+        {% include 'include/sidebar/ranking.html' %}
+        {% include 'include/sidebar/banner_side_2.html' %}
+        {% include 'include/sidebar/twitter.html' %}
+    </div>
+{% endblock %}
+
+{% block inline_javascript %}
+
+{% load staticfiles %}
+<script src="{% static 'hitcount/jquery.postcsrf.js' %}"></script>
+
+{% get_hit_count_js_variables for blogpost as hitcount %}
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+      $.postCSRF("{{ hitcount.ajax_url }}", { hitcountPK : "{{ hitcount.pk }}" })
+        .done(function(data){
+          $('<i />').text(data.hit_counted).attr('id','hit-counted-value').appendTo('#hit-counted');
+          $('#hit-response').text(data.hit_message);
+      }).fail(function(data){
+          console.log('POST failed');
+          console.log(data);
+      });
+    });
+
+    // *********** Create Index
+    var title_list = [];
+    $(".blog-content-main .blog-content-section-title").each(function(index){
+        $(this).attr('id', 'title_' + index);
+        title_list.push('<li class="blog-content-index-list-item"><a href="#title_' + index + '">' + $(this).html() + '</a></li>');
+    });
+    $('.blog-content-index-list').append(title_list);
+
+    // *********** Scroll Index
+      $(".blog-content-index-list-item a[href^=\"#\"]").click(function() {
+        var target = $(this.hash);
+        if (!target.length) return ;
+        $('html,body').animate({scrollTop: target.offset().top}, 200, 'swing');
+        return false;
+      });
+
+</script>
+
+
+{% endblock %}
